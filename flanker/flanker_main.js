@@ -90,10 +90,11 @@ var instructions = {
     type: "html-keyboard-response",
     stimulus: "<p> The task will now begin. Press any key to start. </p>",
     post_trial_gap: 1000
+};
 
 
 /* defining test timeline */
-var test = {
+var practice = {
     timeline: [{
         type: 'image-keyboard-response',
         choices: [37, 39],
