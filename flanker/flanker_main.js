@@ -155,9 +155,4 @@ timeline.push(instructions);
 timeline.push(test);
 timeline.push(debrief);
 
-jsPsych.init({
-    timeline: timeline,
-    on_finish: function() {
-        jsPsych.data.displayData();
-    }
-);
+
