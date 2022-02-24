@@ -1,9 +1,9 @@
 // Use JSDELIVR to get the files from a GitHub repository
 // https://cdn.jsdelivr.net/gh/<github-username>/<repository-name>/
-var repo_site = "https://cdn.jsdelivr.net/gh/dvitaa/jsPsych-in-Qualtrics6/flanker/";
+var repo_site = "https://cdn.jsdelivr.net/gh/dvitaa/jsPsych-in-Qualtrics7/flanker/";
 
 /* experiment parameters */
-var reps_per_trial_type_practice = 1;
+var reps_per_trial_type_practice = 2;
 var reps_per_trial_type = 40;
 
 /*set up welcome block*/
