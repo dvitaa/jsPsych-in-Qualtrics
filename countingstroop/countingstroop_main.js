@@ -4,7 +4,7 @@ var repo_site = "https://cdn.jsdelivr.net/gh/dvitaa/jsPsych-in-Qualtrics8/counti
 
 /* experiment parameters */
 var reps_per_trial_type_practice = 2;
-var reps_per_trial_type = 4;
+var reps_per_trial_type = 2;
 
 /*set up welcome block*/
 var welcome = {
@@ -140,17 +140,17 @@ var debrief = {
         var accuracy = Math.round(jsPsych.data.get().filter({
             correct: true
         }).count() / total_trials * 100);
-        var count_rt = Math.round(jsPsych.data.get().filter({
+        var noun_rt = Math.round(jsPsych.data.get().filter({
             correct: true,
-            stim_type: 'congruent'
+            stim_type: 'noun'
         }).select('rt').mean());
-        var incongruent_rt = Math.round(jsPsych.data.get().filter({
+        var number_rt = Math.round(jsPsych.data.get().filter({
             correct: true,
-            stim_type: 'incongruent'
+            stim_type: 'number'
         }).select('rt').mean());
         return "<p>You responded correctly on <strong>" + accuracy + "%</strong> of the trials.</p> " +
-            "<p>Your average response time for congruent trials was <strong>" + congruent_rt + "ms</strong>.</p>" +
-            "<p>Your average response time for incongruent trials was <strong>" + incongruent_rt + "ms</strong>.</p>" +
+            "<p>Your average response time for noun trials was <strong>" + noun_rt + "ms</strong>.</p>" +
+            "<p>Your average response time for number trials was <strong>" + number_rt + "ms</strong>.</p>" +
             "<p>Press any key to complete the experiment. Thank you!</p>";
     }
 };
