@@ -3,21 +3,23 @@
 var repo_site = "https://cdn.jsdelivr.net/gh/kywch/jsPsych-in-Qualtrics/flanker/";
 
 /* experiment parameters */
-var reps_per_trial_type = 4;
+var reps_per_trial_type_practice = 4;
+var reps_per_trial_type = 40;
 
 /*set up welcome block*/
 var welcome = {
     type: "html-keyboard-response",
-    stimulus: "Welcome to the experiment. Press any key to begin."
+    stimulus: "You will now complete a series of tasks. Press any key to begin."
 };
 
-/*set up instructions block*/
-var instructions = {
+/*set up practice instructions block*/
+var instructions_practice = {
     type: "html-keyboard-response",
     stimulus: "<p>In this task, you will see five arrows on the screen, like the example below.</p>" +
         "<img src='" + repo_site + "img/inc1.png'></img>" +
         "<p>Press the left arrow key if the middle arrow is pointing left. (<)</p>" +
         "<p>Press the right arrow key if the middle arrow is pointing right. (>)</p>" +
+        "<p>You will first complete a practice round. (>)</p>" +
         "<p>Press any key to begin.</p>",
     post_trial_gap: 1000
 };
@@ -52,6 +54,43 @@ var test_stimuli = [{
         }
     }
 ];
+
+
+/*defining practice trial*/
+
+var practice = {
+    timeline: [{
+        type: 'image-keyboard-response',
+        choices: [37, 39],
+        trial_duration: 1500,
+        stimulus: jsPsych.timelineVariable('stimulus'),
+        data: jsPsych.timelineVariable('data'),
+        on_finish: function (data) {
+            var correct = false;
+            if (data.direction == 'left' && data.key_press == 37 && data.rt > -1) {
+                correct = true;
+            } else if (data.direction == 'right' && data.key_press == 39 && data.rt > -1) {
+                correct = true;
+            }
+            data.correct = correct;
+        },
+        post_trial_gap: function () {
+            return Math.floor(Math.random() * 1500) + 500;
+        }
+    }],
+    timeline_variables: test_stimuli,
+    sample: {
+        type: 'fixed-repetitions',
+        size: reps_per_trial_type_practice
+    }
+};
+
+/*task instructions*/
+var instructions = {
+    type: "html-keyboard-response",
+    stimulus: "<p> The task will now begin. Press any key to start. </p>",
+    post_trial_gap: 1000
+
 
 /* defining test timeline */
 var test = {
@@ -109,6 +148,8 @@ var debrief = {
 /*set up experiment structure*/
 var timeline = [];
 timeline.push(welcome);
+timeline.push(instructions_practice);
+timeline.push(practice);
 timeline.push(instructions);
 timeline.push(test);
 timeline.push(debrief);
