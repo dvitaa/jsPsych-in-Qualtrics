@@ -1,9 +1,9 @@
 // Use JSDELIVR to get the files from a GitHub repository
 // https://cdn.jsdelivr.net/gh/<github-username>/<repository-name>/
-var repo_site = "https://cdn.jsdelivr.net/gh/dvitaa/jsPsych-in-Qualtrics4/flanker/";
+var repo_site = "https://cdn.jsdelivr.net/gh/dvitaa/jsPsych-in-Qualtrics5/flanker/";
 
 /* experiment parameters */
-var reps_per_trial_type_practice = 4;
+var reps_per_trial_type_practice = 1;
 var reps_per_trial_type = 40;
 
 /*set up welcome block*/
@@ -19,7 +19,7 @@ var instructions_practice = {
         "<img src='" + repo_site + "img/inc1.png'></img>" +
         "<p>Press the left arrow key if the middle arrow is pointing left. (<)</p>" +
         "<p>Press the right arrow key if the middle arrow is pointing right. (>)</p>" +
-        "<p>You will first complete a practice round. (>)</p>" +
+        "<p>You will first complete a practice round. </p>" +
         "<p>Press any key to begin.</p>",
     post_trial_gap: 1000
 };
@@ -94,7 +94,7 @@ var instructions = {
 
 
 /* defining test timeline */
-var practice = {
+var test = {
     timeline: [{
         type: 'image-keyboard-response',
         choices: [37, 39],
