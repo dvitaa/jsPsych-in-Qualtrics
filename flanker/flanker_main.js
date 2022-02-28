@@ -73,6 +73,7 @@ var practice = {
                 correct = true;
             }
             data.correct = correct;
+            data.practice = 1;
         },
         post_trial_gap: function () {
             return Math.floor(Math.random() * 1500) + 500;
@@ -109,6 +110,7 @@ var test = {
                 correct = true;
             }
             data.correct = correct;
+            data.practice = 0;
         },
         post_trial_gap: function () {
             return Math.floor(Math.random() * 1500) + 500;
@@ -129,15 +131,18 @@ var debrief = {
             trial_type: 'image-keyboard-response'
         }).count();
         var accuracy = Math.round(jsPsych.data.get().filter({
-            correct: true
+            correct: true,
+            practice: 0
         }).count() / total_trials * 100);
         var congruent_rt = Math.round(jsPsych.data.get().filter({
             correct: true,
-            stim_type: 'congruent'
+            stim_type: 'congruent',
+            practice: 0
         }).select('rt').mean());
         var incongruent_rt = Math.round(jsPsych.data.get().filter({
             correct: true,
-            stim_type: 'incongruent'
+            stim_type: 'incongruent',
+            practice:0
         }).select('rt').mean());
         return "<p>You responded correctly on <strong>" + accuracy + "%</strong> of the trials.</p> " +
             "<p>Your average response time for congruent trials was <strong>" + congruent_rt + "ms</strong>.</p>" +

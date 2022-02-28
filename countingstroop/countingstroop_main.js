@@ -1,6 +1,6 @@
 // Use JSDELIVR to get the files from a GitHub repository
 // https://cdn.jsdelivr.net/gh/<github-username>/<repository-name>/
-var repo_site = "https://cdn.jsdelivr.net/gh/dvitaa/jsPsych-in-Qualtrics10/countingstroop/";
+var repo_site = "https://cdn.jsdelivr.net/gh/dvitaa/jsPsych-in-Qualtrics11/countingstroop/";
 
 /* experiment parameters */
 var reps_per_trial_type_practice = 2;
@@ -40,7 +40,7 @@ var test_stimuli = [{
             count: '3'
         }
     },
-    {
+    //{
        /* stimulus: repo_site + "img/inc1.png",
         data: {
             stim_type: 'incongruent',
@@ -53,7 +53,7 @@ var test_stimuli = [{
             stim_type: 'incongruent',
             direction: 'left'
         } */
-    }
+    //}
 ];
 
 
