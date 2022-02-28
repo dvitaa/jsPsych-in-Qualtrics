@@ -1,6 +1,6 @@
 // Use JSDELIVR to get the files from a GitHub repository
 // https://cdn.jsdelivr.net/gh/<github-username>/<repository-name>/
-var repo_site = "https://cdn.jsdelivr.net/gh/dvitaa/jsPsych-in-Qualtrics17/flanker/";
+var repo_site = "https://cdn.jsdelivr.net/gh/dvitaa/jsPsych-in-Qualtrics18/flanker/";
 
 /* experiment parameters */
 var reps_per_trial_type_practice = 2;
@@ -100,15 +100,15 @@ var test = {
         choices: [37, 39],
         trial_duration: 1500,
         stimulus: jsPsych.timelineVariable('stimulus'),
-        data_test: jsPsych.timelineVariable('datatest'),
-        on_finish: function (data_test) {
+        data: jsPsych.timelineVariable('datatest'),
+        on_finish: function (data) {
             var correct = false;
-            if (data_test.direction == 'left' && this.data_test.key_press == 37 && data_test.rt > -1) {
+            if (data.direction == 'left' && this.data.key_press == 37 && data.rt > -1) {
                 correct = true;
-            } else if (data_test.direction == 'right' && data_test.key_press == 39 && data_test.rt > -1) {
+            } else if (data.direction == 'right' && data.key_press == 39 && data.rt > -1) {
                 correct = true;
             }
-            data_test.correct = correct;
+            data.correct = correct;
 
         },
         post_trial_gap: function () {
@@ -126,19 +126,19 @@ var test = {
 var debrief = {
     type: "html-keyboard-response",
     stimulus: function () {
-        var total_trials = jsPsych.data_test.get().filter({
+        var total_trials = jsPsych.data.get().filter({
             trial_type: 'image-keyboard-response'
         }).count();
-        var accuracy_flanker = Math.round(jsPsych.data_test.get().filter({
+        var accuracy_flanker = Math.round(jsPsych.data.get().filter({
             correct: true,
         
         }).count() / total_trials * 100);
-        var congruent_rt = Math.round(jsPsych.data_test.get().filter({
+        var congruent_rt = Math.round(jsPsych.data.get().filter({
             correct: true,
             stim_type: 'congruent',
      
         }).select('rt').mean());
-        var incongruent_rt = Math.round(jsPsych.data_test.get().filter({
+        var incongruent_rt = Math.round(jsPsych.data.get().filter({
             correct: true,
             stim_type: 'incongruent',
             
