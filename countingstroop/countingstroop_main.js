@@ -1,6 +1,6 @@
 // Use JSDELIVR to get the files from a GitHub repository
 // https://cdn.jsdelivr.net/gh/<github-username>/<repository-name>/
-var repo_site = "https://cdn.jsdelivr.net/gh/dvitaa/jsPsych-in-Qualtrics07/countingstroop/";
+var repo_site = "https://cdn.jsdelivr.net/gh/dvitaa/jsPsych-in-Qualtrics08/countingstroop/";
 
 /* experiment parameters */
 var reps_per_trial_type_practice = 1;
@@ -26,57 +26,57 @@ var instructions_practice = {
 };
 
 /* practice stimuli*/ 
-var practic_stimuli = [{
-    stimulus: repo_site + "img/1.png",
+var practice_stimuli = [{
+    pracstimulus: repo_site + "img/1.png",
     data_prac: {
         stim_type: 'noun',
         count: '4'
     }
 },
 {
-    stimulus: repo_site + "img/2.png",
+    pracstimulus: repo_site + "img/2.png",
     data_prac: {
         stim_type: 'noun',
         count: '3'
     }
 },
 {
-   stimulus: repo_site + "img/3.png",
+   pracstimulus: repo_site + "img/3.png",
     data_prac: {
         stim_type: 'noun',
         count: '2'
     }
 },
 {
-    stimulus: repo_site + "img/4.png",
+    pracstimulus: repo_site + "img/4.png",
     data_prac: {
         stim_type: 'noun',
         count: '1'
     } 
 },
 {
-stimulus: repo_site + "img/5.png",
+    pracstimulus: repo_site + "img/5.png",
     data_prac: {
         stim_type: 'number',
         count: '4'
     }
 },
 {
-    stimulus: repo_site + "img/6.png",
+    pracstimulus: repo_site + "img/6.png",
     data_prac: {
         stim_type: 'number',
         count: '3'
     }
 },
 {
-   stimulus: repo_site + "img/7.png",
+   pracstimulus: repo_site + "img/7.png",
     data: {
         stim_type: 'number',
         count: '2'
     }
 },
 {
-    stimulus: repo_site + "img/8.png",
+    pracstimulus: repo_site + "img/8.png",
     data_prac: {
         stim_type: 'number',
         count: '1'
@@ -92,9 +92,9 @@ var practice = {
         type: 'image-keyboard-response',
         choices: [49, 50, 51, 52],
         trial_duration: 1500,
-        stimulus: jsPsych.timelineVariable('stimulus_prac'),
+        pracstimulus: jsPsych.timelineVariable('stimulus_prac'),
         data_prac: jsPsych.timelineVariable('data_prac'),
-         on_finish: function (data) {
+         on_finish: function (data_prac) {
             var correct = false;
             if (data_prac.count == '1' && data_prac.key_press == 49 && data_prac.rt > -1) {
                 correct = true;

@@ -11,7 +11,7 @@ Qualtrics.SurveyEngine.addOnload(function () {
 
     /* Change 2: Defining and load required resources */
     // https://cdn.jsdelivr.net/gh/<github-username>/<repository-name>/<experiment-folder>
-    var task_github = "https://cdn.jsdelivr.net/gh/dvitaa/jsPsych-in-Qualtrics07/countingstroop/";
+    var task_github = "https://cdn.jsdelivr.net/gh/dvitaa/jsPsych-in-Qualtrics08/countingstroop/";
 
     // requiredResources must include all the JS files that demo-simple-rt-task-transformed.html uses.
     var requiredResources = [
@@ -42,35 +42,8 @@ Qualtrics.SurveyEngine.addOnload(function () {
     jQuery("<div id = 'display_stage'></div>").appendTo('body');
 
     /* Change 4: Wrapping jsPsych.init() in a function */
+    
     function initExp() {
-
-            jsPsych.init({
-                timeline: timeline,
-                display_element: 'display_stage',
-                on_finish: function (data_prac) {
-                    /* Change 5: Summarizing and save the results to Qualtrics */
-                    // summarize the results
-                    var total_trials = jsPsych.data_prac.get().filter({
-                        trial_type: 'image-keyboard-response'
-                    }).count();
-                    var accuracy_stroop = Math.round(jsPsych.data_prac.get().filter({
-                        correct: true
-                    }).count() / total_trials * 100);
-                    var congruent_rt = Math.round(jsPsych.data_prac.get().filter({
-                        correct: true,
-                        stim_type: 'noun'
-                    }).select('rt').mean());
-                    var incongruent_rt = Math.round(jsPsych.data_prac.get().filter({
-                        correct: true,
-                        stim_type: 'number'
-                    }).select('rt').mean());
-                }
-            });
-        }
-
-
-function initExp() {
-
         jsPsych.init({
             timeline: timeline,
             display_element: 'display_stage',
@@ -107,7 +80,6 @@ function initExp() {
             }
         });
     }
-
 });
 
 Qualtrics.SurveyEngine.addOnReady(function () {
