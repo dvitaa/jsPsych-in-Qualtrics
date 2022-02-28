@@ -3,7 +3,7 @@
 var repo_site = "https://cdn.jsdelivr.net/gh/dvitaa/jsPsych-in-Qualtrics11/countingstroop/";
 
 /* experiment parameters */
-var reps_per_trial_type_practice = 2;
+var reps_per_trial_type_practice = 1;
 var reps_per_trial_type = 2;
 
 /*set up welcome block*/
@@ -16,7 +16,7 @@ var welcome = {
 var instructions_practice = {
     type: "html-keyboard-response",
     stimulus: "<p>In this task, you will see words on a screen, like the example below.</p>" +
-        "<img src='" + repo_site + "img/1.png'></img>" +
+        "<img src='" + repo_site + "img/4.png'></img>" +
         "<p> Count the number of words on the screen. (<)</p>" +
         "<p>Press the number key corresponding to the number of words on the screen. </p>" +
         "<p> For example, if there are three words on the screen you will press the '4' number key on your keyboard. </p>" +
@@ -36,24 +36,52 @@ var test_stimuli = [{
     {
         stimulus: repo_site + "img/2.png",
         data: {
+            stim_type: 'noun',
+            count: '3'
+        }
+    },
+    {
+       stimulus: repo_site + "img/3.png",
+        data: {
+            stim_type: 'noun',
+            count: '2'
+        }
+    },
+    {
+        stimulus: repo_site + "img/4.png",
+        data: {
+            stim_type: 'noun',
+            count: '1'
+        } 
+    },
+    {
+    stimulus: repo_site + "img/5.png",
+        data: {
+            stim_type: 'number',
+            count: '4'
+        }
+    },
+    {
+        stimulus: repo_site + "img/6.png",
+        data: {
             stim_type: 'number',
             count: '3'
         }
     },
-    //{
-       /* stimulus: repo_site + "img/inc1.png",
+    {
+       stimulus: repo_site + "img/7.png",
         data: {
-            stim_type: 'incongruent',
-            direction: 'right'
+            stim_type: 'number',
+            count: '2'
         }
     },
     {
-        stimulus: repo_site + "img/inc2.png",
+        stimulus: repo_site + "img/8.png",
         data: {
-            stim_type: 'incongruent',
-            direction: 'left'
-        } */
-    //}
+            stim_type: 'number',
+            count: '1'
+        } 
+    }
 ];
 
 
