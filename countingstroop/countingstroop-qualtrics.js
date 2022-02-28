@@ -58,11 +58,11 @@ Qualtrics.SurveyEngine.addOnload(function () {
                 }).count() / total_trials * 100);
                 var congruent_rt = Math.round(jsPsych.data.get().filter({
                     correct: true,
-                    stim_type: 'congruent'
+                    stim_type: 'noun'
                 }).select('rt').mean());
                 var incongruent_rt = Math.round(jsPsych.data.get().filter({
                     correct: true,
-                    stim_type: 'incongruent'
+                    stim_type: 'number'
                 }).select('rt').mean());
 
                 // save to qualtrics embedded data
