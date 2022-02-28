@@ -1,10 +1,10 @@
 // Use JSDELIVR to get the files from a GitHub repository
 // https://cdn.jsdelivr.net/gh/<github-username>/<repository-name>/
-var repo_site = "https://cdn.jsdelivr.net/gh/dvitaa/jsPsych-in-Qualtrics16/flanker/";
+var repo_site = "https://cdn.jsdelivr.net/gh/dvitaa/jsPsych-in-Qualtrics15/flanker/";
 
 /* experiment parameters */
 var reps_per_trial_type_practice = 2;
-var reps_per_trial_type = 4;
+var reps_per_trial_type = 40;
 
 /*set up welcome block*/
 var welcome = {
@@ -64,15 +64,16 @@ var practice = {
         choices: [37, 39],
         trial_duration: 1500,
         stimulus: jsPsych.timelineVariable('stimulus'),
-        data_practice: jsPsych.timelineVariable('datapractice'),
+        data: jsPsych.timelineVariable('data'),
         on_finish: function (data) {
             var correct = false;
-            if (data_practice.direction == 'left' && data_practice.key_press == 37 && data_practice.rt > -1) {
+            if (data.direction == 'left' && data.key_press == 37 && data.rt > -1) {
                 correct = true;
-            } else if (data_practice.direction == 'right' && data_practice.key_press == 39 && data_practice.rt > -1) {
+            } else if (data.direction == 'right' && data.key_press == 39 && data.rt > -1) {
                 correct = true;
             }
-            data_practice.correct = correct;
+            data.correct = correct;
+            data.practice = 1;
         },
         post_trial_gap: function () {
             return Math.floor(Math.random() * 1500) + 500;
@@ -100,16 +101,16 @@ var test = {
         choices: [37, 39],
         trial_duration: 1500,
         stimulus: jsPsych.timelineVariable('stimulus'),
-        data_test: jsPsych.timelineVariable('datatest'),
+        data: jsPsych.timelineVariable('data'),
         on_finish: function (data) {
             var correct = false;
-            if (data_test.direction == 'left' && this.data_test.key_press == 37 && data_test.rt > -1) {
+            if (data.direction == 'left' && data.key_press == 37 && data.rt > -1) {
                 correct = true;
-            } else if (data_test.direction == 'right' && data_test.key_press == 39 && data_test.rt > -1) {
+            } else if (data.direction == 'right' && data.key_press == 39 && data.rt > -1) {
                 correct = true;
             }
-            data_test.correct = correct;
-
+            data.correct = correct;
+            data.practice = 0;
         },
         post_trial_gap: function () {
             return Math.floor(Math.random() * 1500) + 500;
@@ -126,22 +127,22 @@ var test = {
 var debrief = {
     type: "html-keyboard-response",
     stimulus: function () {
-        var total_trials = jsPsych.data_test.get().filter({
+        var total_trials = jsPsych.data.get().filter({
             trial_type: 'image-keyboard-response'
         }).count();
-        var accuracy_flanker = Math.round(jsPsych.data_test.get().filter({
+        var accuracy_flanker = Math.round(jsPsych.data.get().filter({
             correct: true,
-        
+            practice: 0
         }).count() / total_trials * 100);
-        var congruent_rt = Math.round(jsPsych.data_test.get().filter({
+        var congruent_rt = Math.round(jsPsych.data.get().filter({
             correct: true,
             stim_type: 'congruent',
-     
+            practice: 0
         }).select('rt').mean());
-        var incongruent_rt = Math.round(jsPsych.data_test.get().filter({
+        var incongruent_rt = Math.round(jsPsych.data.get().filter({
             correct: true,
             stim_type: 'incongruent',
-            
+            practice:0
         }).select('rt').mean());
         return "<p>You responded correctly on <strong>" + accuracy_flanker + "%</strong> of the trials.</p> " +
             "<p>Your average response time for congruent trials was <strong>" + congruent_rt + "ms</strong>.</p>" +
@@ -160,4 +161,3 @@ timeline.push(test);
 timeline.push(debrief);
 
 
-/* why am i getting data from practice trials in Qualtrics but not in the debrief summary?*/
