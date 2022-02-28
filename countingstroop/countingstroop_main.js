@@ -1,6 +1,6 @@
 // Use JSDELIVR to get the files from a GitHub repository
 // https://cdn.jsdelivr.net/gh/<github-username>/<repository-name>/
-var repo_site = "https://cdn.jsdelivr.net/gh/dvitaa/jsPsych-in-Qualtrics15/countingstroop/";
+var repo_site = "https://cdn.jsdelivr.net/gh/dvitaa/jsPsych-in-Qualtrics05/countingstroop/";
 
 /* experiment parameters */
 var reps_per_trial_type_practice = 1;
@@ -93,19 +93,19 @@ var practice = {
         choices: [49, 50, 51, 52],
         trial_duration: 1500,
         stimulus: jsPsych.timelineVariable('stimulus'),
-        data: jsPsych.timelineVariable('data'),
+        data_prac: jsPsych.timelineVariable('data_prac'),
          on_finish: function (data) {
             var correct = false;
-            if (data.count == '1' && data.key_press == 49 && data.rt > -1) {
+            if (data_prac.count == '1' && data_prac.key_press == 49 && data_prac.rt > -1) {
                 correct = true;
-            } else if (data.count == '2' && data.key_press == 50 && data.rt > -1) {
+            } else if (data_prac.count == '2' && data_prac.key_press == 50 && data_prac.rt > -1) {
                 correct = true;
-            }else if (data.count == '3' && data.key_press == 51 && data.rt > -1) {
+            }else if (data_prac.count == '3' && data_prac.key_press == 51 && data_prac.rt > -1) {
                 correct = true;
-            }else if (data.count == '4' && data.key_press == 52 && data.rt > -1) {
+            }else if (data_prac.count == '4' && data_prac.key_press == 52 && data_prac.rt > -1) {
                 correct = true;
             }
-            data.correct = correct;
+            data_prac.correct = correct;
         },
         post_trial_gap: function () {
             return Math.floor(Math.random() * 1000) + 500;
