@@ -1,6 +1,6 @@
 // Use JSDELIVR to get the files from a GitHub repository
 // https://cdn.jsdelivr.net/gh/<github-username>/<repository-name>/
-var repo_site = "https://cdn.jsdelivr.net/gh/dvitaa/jsPsych-in-Qualtrics16/flanker/";
+var repo_site = "https://cdn.jsdelivr.net/gh/dvitaa/jsPsych-in-Qualtrics17/flanker/";
 
 /* experiment parameters */
 var reps_per_trial_type_practice = 2;
@@ -65,7 +65,7 @@ var practice = {
         trial_duration: 1500,
         stimulus: jsPsych.timelineVariable('stimulus'),
         data_practice: jsPsych.timelineVariable('datapractice'),
-        on_finish: function (data) {
+        on_finish: function (data_practice) {
             var correct = false;
             if (data_practice.direction == 'left' && data_practice.key_press == 37 && data_practice.rt > -1) {
                 correct = true;
@@ -101,7 +101,7 @@ var test = {
         trial_duration: 1500,
         stimulus: jsPsych.timelineVariable('stimulus'),
         data_test: jsPsych.timelineVariable('datatest'),
-        on_finish: function (data) {
+        on_finish: function (data_test) {
             var correct = false;
             if (data_test.direction == 'left' && this.data_test.key_press == 37 && data_test.rt > -1) {
                 correct = true;
