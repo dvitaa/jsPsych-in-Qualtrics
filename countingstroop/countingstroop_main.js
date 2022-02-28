@@ -1,6 +1,6 @@
 // Use JSDELIVR to get the files from a GitHub repository
 // https://cdn.jsdelivr.net/gh/<github-username>/<repository-name>/
-var repo_site = "https://cdn.jsdelivr.net/gh/dvitaa/jsPsych-in-Qualtrics05/countingstroop/";
+var repo_site = "https://cdn.jsdelivr.net/gh/dvitaa/jsPsych-in-Qualtrics06/countingstroop/";
 
 /* experiment parameters */
 var reps_per_trial_type_practice = 1;
@@ -25,63 +25,63 @@ var instructions_practice = {
     post_trial_gap: 1000
 };
 
-/*defining stimuli*/ //*add imgs*//
-var test_stimuli = [{
-        stimulus: repo_site + "img/1.png",
-        data: {
-            stim_type: 'noun',
-            count: '4'
-        }
-    },
-    {
-        stimulus: repo_site + "img/2.png",
-        data: {
-            stim_type: 'noun',
-            count: '3'
-        }
-    },
-    {
-       stimulus: repo_site + "img/3.png",
-        data: {
-            stim_type: 'noun',
-            count: '2'
-        }
-    },
-    {
-        stimulus: repo_site + "img/4.png",
-        data: {
-            stim_type: 'noun',
-            count: '1'
-        } 
-    },
-    {
-    stimulus: repo_site + "img/5.png",
-        data: {
-            stim_type: 'number',
-            count: '4'
-        }
-    },
-    {
-        stimulus: repo_site + "img/6.png",
-        data: {
-            stim_type: 'number',
-            count: '3'
-        }
-    },
-    {
-       stimulus: repo_site + "img/7.png",
-        data: {
-            stim_type: 'number',
-            count: '2'
-        }
-    },
-    {
-        stimulus: repo_site + "img/8.png",
-        data: {
-            stim_type: 'number',
-            count: '1'
-        } 
+/* practice stimuli*/ 
+var practic_stimuli = [{
+    stimulus: repo_site + "img/1.png",
+    data_prac: {
+        stim_type: 'noun',
+        count: '4'
     }
+},
+{
+    stimulus: repo_site + "img/2.png",
+    data_prac: {
+        stim_type: 'noun',
+        count: '3'
+    }
+},
+{
+   stimulus: repo_site + "img/3.png",
+    data_prac: {
+        stim_type: 'noun',
+        count: '2'
+    }
+},
+{
+    stimulus: repo_site + "img/4.png",
+    data_prac: {
+        stim_type: 'noun',
+        count: '1'
+    } 
+},
+{
+stimulus: repo_site + "img/5.png",
+    data_prac: {
+        stim_type: 'number',
+        count: '4'
+    }
+},
+{
+    stimulus: repo_site + "img/6.png",
+    data_prac: {
+        stim_type: 'number',
+        count: '3'
+    }
+},
+{
+   stimulus: repo_site + "img/7.png",
+    data: {
+        stim_type: 'number',
+        count: '2'
+    }
+},
+{
+    stimulus: repo_site + "img/8.png",
+    data_prac: {
+        stim_type: 'number',
+        count: '1'
+    } 
+}
 ];
 
 
@@ -92,7 +92,7 @@ var practice = {
         type: 'image-keyboard-response',
         choices: [49, 50, 51, 52],
         trial_duration: 1500,
-        stimulus: jsPsych.timelineVariable('stimulus'),
+        stimulus: jsPsych.timelineVariable('stimulus_prac'),
         data_prac: jsPsych.timelineVariable('data_prac'),
          on_finish: function (data) {
             var correct = false;
@@ -111,12 +111,72 @@ var practice = {
             return Math.floor(Math.random() * 1000) + 500;
         }
     }],
-    timeline_variables: test_stimuli,
+    timeline_variables: practice_stimuli,
     sample: {
         type: 'fixed-repetitions',
         size: reps_per_trial_type_practice
     }
 };
+
+
+/*defining stimuli*/ //*add imgs*//
+var test_stimuli = [{
+    stimulus: repo_site + "img/1.png",
+    data: {
+        stim_type: 'noun',
+        count: '4'
+    }
+},
+{
+    stimulus: repo_site + "img/2.png",
+    data: {
+        stim_type: 'noun',
+        count: '3'
+    }
+},
+{
+   stimulus: repo_site + "img/3.png",
+    data: {
+        stim_type: 'noun',
+        count: '2'
+    }
+},
+{
+    stimulus: repo_site + "img/4.png",
+    data: {
+        stim_type: 'noun',
+        count: '1'
+    } 
+},
+{
+stimulus: repo_site + "img/5.png",
+    data: {
+        stim_type: 'number',
+        count: '4'
+    }
+},
+{
+    stimulus: repo_site + "img/6.png",
+    data: {
+        stim_type: 'number',
+        count: '3'
+    }
+},
+{
+   stimulus: repo_site + "img/7.png",
+    data: {
+        stim_type: 'number',
+        count: '2'
+    }
+},
+{
+    stimulus: repo_site + "img/8.png",
+    data: {
+        stim_type: 'number',
+        count: '1'
+    } 
+}
+];
 
 /*task instructions*/
 var instructions = {
