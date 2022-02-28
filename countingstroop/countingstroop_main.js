@@ -1,123 +1,10 @@
 // Use JSDELIVR to get the files from a GitHub repository
 // https://cdn.jsdelivr.net/gh/<github-username>/<repository-name>/
-var repo_site = "https://cdn.jsdelivr.net/gh/dvitaa/jsPsych-in-Qualtrics08/countingstroop/";
+var repo_site = "https://cdn.jsdelivr.net/gh/dvitaa/jsPsych-in-Qualtrics15/countingstroop/";
 
 /* experiment parameters */
 var reps_per_trial_type_practice = 1;
 var reps_per_trial_type = 2;
-
-/*set up welcome block*/
-var welcome = {
-    type: "html-keyboard-response",
-    stimulus: "You will now complete a series of tasks. Press any key to begin."
-};
-
-/*set up practice instructions block*/
-var instructions_practice = {
-    type: "html-keyboard-response",
-    stimulus: "<p>In this task, you will see words on a screen, like the example below.</p>" +
-        "<img src='" + repo_site + "img/4.png'></img>" +
-        "<p> Count the number of words on the screen. </p>" +
-        "<p>Press the number key corresponding to the number of words on the screen. </p>" +
-        "<p> For example, if there is 1 word on the screen you will press the '1' number key on your keyboard. </p>" +
-        "<p>You will first complete a practice round. </p>" +
-        "<p>Press any key to begin.</p>",
-    post_trial_gap: 1000
-};
-
-/* practice stimuli*/ 
-var practice_stimuli = [{
-    pracstimulus: repo_site + "img/1.png",
-    data_prac: {
-        stim_type: 'noun',
-        count: '4'
-    }
-},
-{
-    pracstimulus: repo_site + "img/2.png",
-    data_prac: {
-        stim_type: 'noun',
-        count: '3'
-    }
-},
-{
-   pracstimulus: repo_site + "img/3.png",
-    data_prac: {
-        stim_type: 'noun',
-        count: '2'
-    }
-},
-{
-    pracstimulus: repo_site + "img/4.png",
-    data_prac: {
-        stim_type: 'noun',
-        count: '1'
-    } 
-},
-{
-    pracstimulus: repo_site + "img/5.png",
-    data_prac: {
-        stim_type: 'number',
-        count: '4'
-    }
-},
-{
-    pracstimulus: repo_site + "img/6.png",
-    data_prac: {
-        stim_type: 'number',
-        count: '3'
-    }
-},
-{
-   pracstimulus: repo_site + "img/7.png",
-    data: {
-        stim_type: 'number',
-        count: '2'
-    }
-},
-{
-    pracstimulus: repo_site + "img/8.png",
-    data_prac: {
-        stim_type: 'number',
-        count: '1'
-    } 
-}
-];
-
-
-/*defining practice trial*/
-
-var practice = {
-    timeline: [{
-        type: 'image-keyboard-response',
-        choices: [49, 50, 51, 52],
-        trial_duration: 1500,
-        pracstimulus: jsPsych.timelineVariable('stimulus_prac'),
-        data_prac: jsPsych.timelineVariable('data_prac'),
-         on_finish: function (data_prac) {
-            var correct = false;
-            if (data_prac.count == '1' && data_prac.key_press == 49 && data_prac.rt > -1) {
-                correct = true;
-            } else if (data_prac.count == '2' && data_prac.key_press == 50 && data_prac.rt > -1) {
-                correct = true;
-            }else if (data_prac.count == '3' && data_prac.key_press == 51 && data_prac.rt > -1) {
-                correct = true;
-            }else if (data_prac.count == '4' && data_prac.key_press == 52 && data_prac.rt > -1) {
-                correct = true;
-            }
-            data_prac.correct = correct;
-        },
-        post_trial_gap: function () {
-            return Math.floor(Math.random() * 1000) + 500;
-        }
-    }],
-    timeline_variables: practice_stimuli,
-    sample: {
-        type: 'fixed-repetitions',
-        size: reps_per_trial_type_practice
-    }
-};
-
 
 /*defining stimuli*/ //*add imgs*//
 var test_stimuli = [{
@@ -177,6 +64,58 @@ stimulus: repo_site + "img/5.png",
     } 
 }
 ];
+
+/*set up welcome block*/
+var welcome = {
+    type: "html-keyboard-response",
+    stimulus: "You will now complete a series of tasks. Press any key to begin."
+};
+
+/*set up practice instructions block*/
+var instructions_practice = {
+    type: "html-keyboard-response",
+    stimulus: "<p>In this task, you will see words on a screen, like the example below.</p>" +
+        "<img src='" + repo_site + "img/4.png'></img>" +
+        "<p> Count the number of words on the screen. </p>" +
+        "<p>Press the number key corresponding to the number of words on the screen. </p>" +
+        "<p> For example, if there is 1 word on the screen you will press the '1' number key on your keyboard. </p>" +
+        "<p>You will first complete a practice round. </p>" +
+        "<p>Press any key to begin.</p>",
+    post_trial_gap: 1000
+};
+
+/*defining practice trial*/
+
+var practice = {
+    timeline: [{
+        type: 'image-keyboard-response',
+        choices: [49, 50, 51, 52],
+        trial_duration: 1500,
+        pracstimulus: jsPsych.timelineVariable('stimulus_prac'),
+        data_prac: jsPsych.timelineVariable('data_prac'),
+         on_finish: function (data_prac) {
+            var correct = false;
+            if (data_prac.count == '1' && data_prac.key_press == 49 && data_prac.rt > -1) {
+                correct = true;
+            } else if (data_prac.count == '2' && data_prac.key_press == 50 && data_prac.rt > -1) {
+                correct = true;
+            }else if (data_prac.count == '3' && data_prac.key_press == 51 && data_prac.rt > -1) {
+                correct = true;
+            }else if (data_prac.count == '4' && data_prac.key_press == 52 && data_prac.rt > -1) {
+                correct = true;
+            }
+            data_prac.correct = correct;
+        },
+        post_trial_gap: function () {
+            return Math.floor(Math.random() * 1000) + 500;
+        }
+    }],
+    timeline_variables: practice_stimuli,
+    sample: {
+        type: 'fixed-repetitions',
+        size: reps_per_trial_type_practice
+    }
+};
 
 /*task instructions*/
 var instructions = {
