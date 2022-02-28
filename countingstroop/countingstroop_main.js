@@ -1,6 +1,6 @@
 // Use JSDELIVR to get the files from a GitHub repository
 // https://cdn.jsdelivr.net/gh/<github-username>/<repository-name>/
-var repo_site = "https://cdn.jsdelivr.net/gh/dvitaa/jsPsych-in-Qualtrics13/countingstroop/";
+var repo_site = "https://cdn.jsdelivr.net/gh/dvitaa/jsPsych-in-Qualtrics14/countingstroop/";
 
 /* experiment parameters */
 var reps_per_trial_type_practice = 1;
@@ -17,9 +17,9 @@ var instructions_practice = {
     type: "html-keyboard-response",
     stimulus: "<p>In this task, you will see words on a screen, like the example below.</p>" +
         "<img src='" + repo_site + "img/4.png'></img>" +
-        "<p> Count the number of words on the screen. (<)</p>" +
+        "<p> Count the number of words on the screen. </p>" +
         "<p>Press the number key corresponding to the number of words on the screen. </p>" +
-        "<p> For example, if there are three words on the screen you will press the '4' number key on your keyboard. </p>" +
+        "<p> For example, if there is 1 word on the screen you will press the '1' number key on your keyboard. </p>" +
         "<p>You will first complete a practice round. </p>" +
         "<p>Press any key to begin.</p>",
     post_trial_gap: 1000
