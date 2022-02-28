@@ -1,6 +1,6 @@
 // Use JSDELIVR to get the files from a GitHub repository
 // https://cdn.jsdelivr.net/gh/<github-username>/<repository-name>/
-var repo_site = "https://cdn.jsdelivr.net/gh/dvitaa/jsPsych-in-Qualtrics14/countingstroop/";
+var repo_site = "https://cdn.jsdelivr.net/gh/dvitaa/jsPsych-in-Qualtrics15/countingstroop/";
 
 /* experiment parameters */
 var reps_per_trial_type_practice = 1;
@@ -165,7 +165,7 @@ var debrief = {
         var total_trials = jsPsych.data.get().filter({
             trial_type: 'image-keyboard-response'
         }).count();
-        var accuracy = Math.round(jsPsych.data.get().filter({
+        var accuracy_stroop = Math.round(jsPsych.data.get().filter({
             correct: true
         }).count() / total_trials * 100);
         var noun_rt = Math.round(jsPsych.data.get().filter({
@@ -176,7 +176,7 @@ var debrief = {
             correct: true,
             stim_type: 'number'
         }).select('rt').mean());
-        return "<p>You responded correctly on <strong>" + accuracy + "%</strong> of the trials.</p> " +
+        return "<p>You responded correctly on <strong>" + accuracy_stroop + "%</strong> of the trials.</p> " +
             "<p>Your average response time for noun trials was <strong>" + noun_rt + "ms</strong>.</p>" +
             "<p>Your average response time for number trials was <strong>" + number_rt + "ms</strong>.</p>" +
             "<p>Press any key to complete the experiment. Thank you!</p>";
@@ -193,3 +193,4 @@ timeline.push(test);
 timeline.push(debrief);
 
 
+/*is the data also coming from "practice"?*/

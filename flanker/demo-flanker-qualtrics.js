@@ -11,7 +11,7 @@ Qualtrics.SurveyEngine.addOnload(function () {
 
     /* Change 2: Defining and load required resources */
     // https://cdn.jsdelivr.net/gh/<github-username>/<repository-name>/<experiment-folder>
-    var task_github = "https://cdn.jsdelivr.net/gh/dvitaa/jsPsych-in-Qualtrics14/flanker/";
+    var task_github = "https://cdn.jsdelivr.net/gh/dvitaa/jsPsych-in-Qualtrics15/flanker/";
 
     // requiredResources must include all the JS files that demo-simple-rt-task-transformed.html uses.
     var requiredResources = [
@@ -53,7 +53,7 @@ Qualtrics.SurveyEngine.addOnload(function () {
                 var total_trials = jsPsych.data.get().filter({
                     trial_type: 'image-keyboard-response'
                 }).count();
-                var accuracy = Math.round(jsPsych.data.get().filter({
+                var accuracy_flanker = Math.round(jsPsych.data.get().filter({
                     correct: true
                 }).count() / total_trials * 100);
                 var congruent_rt = Math.round(jsPsych.data.get().filter({
@@ -66,7 +66,7 @@ Qualtrics.SurveyEngine.addOnload(function () {
                 }).select('rt').mean());
 
                 // save to qualtrics embedded data
-                Qualtrics.SurveyEngine.setEmbeddedData("accuracy", accuracy);
+                Qualtrics.SurveyEngine.setEmbeddedData("accuracy_flanker", accuracy_flanker);
                 Qualtrics.SurveyEngine.setEmbeddedData("congruent_rt", congruent_rt);
                 Qualtrics.SurveyEngine.setEmbeddedData("incongruent_rt", incongruent_rt);
 

@@ -1,6 +1,6 @@
 // Use JSDELIVR to get the files from a GitHub repository
 // https://cdn.jsdelivr.net/gh/<github-username>/<repository-name>/
-var repo_site = "https://cdn.jsdelivr.net/gh/dvitaa/jsPsych-in-Qualtrics14/flanker/";
+var repo_site = "https://cdn.jsdelivr.net/gh/dvitaa/jsPsych-in-Qualtrics15/flanker/";
 
 /* experiment parameters */
 var reps_per_trial_type_practice = 2;
@@ -130,7 +130,7 @@ var debrief = {
         var total_trials = jsPsych.data.get().filter({
             trial_type: 'image-keyboard-response'
         }).count();
-        var accuracy = Math.round(jsPsych.data.get().filter({
+        var accuracy_flanker = Math.round(jsPsych.data.get().filter({
             correct: true,
             practice: 0
         }).count() / total_trials * 100);
@@ -144,7 +144,7 @@ var debrief = {
             stim_type: 'incongruent',
             practice:0
         }).select('rt').mean());
-        return "<p>You responded correctly on <strong>" + accuracy + "%</strong> of the trials.</p> " +
+        return "<p>You responded correctly on <strong>" + accuracy_flanker + "%</strong> of the trials.</p> " +
             "<p>Your average response time for congruent trials was <strong>" + congruent_rt + "ms</strong>.</p>" +
             "<p>Your average response time for incongruent trials was <strong>" + incongruent_rt + "ms</strong>.</p>" +
             "<p>Press any key to complete the experiment. Thank you!</p>";
