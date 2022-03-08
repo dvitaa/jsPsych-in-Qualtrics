@@ -1,10 +1,10 @@
 // Use JSDELIVR to get the files from a GitHub repository
 // https://cdn.jsdelivr.net/gh/<github-username>/<repository-name>/
-var repo_site = "https://cdn.jsdelivr.net/gh/dvitaa/jsPsych-in-Qualtrics15/flanker/";
+var repo_site = "https://cdn.jsdelivr.net/gh/dvitaa/jsPsych-in-Qualtrics002/flanker/";
 
 /* experiment parameters */
-var reps_per_trial_type_practice = 2;
-var reps_per_trial_type = 40;
+var reps_per_trial_type_practice = 1;
+var reps_per_trial_type = 1;
 
 /*set up welcome block*/
 var welcome = {
@@ -144,12 +144,14 @@ var debrief = {
             stim_type: 'incongruent',
             practice:0
         }).select('rt').mean());
-        return "<p>You responded correctly on <strong>" + accuracy_flanker + "%</strong> of the trials.</p> " +
-            "<p>Your average response time for congruent trials was <strong>" + congruent_rt + "ms</strong>.</p>" +
-            "<p>Your average response time for incongruent trials was <strong>" + incongruent_rt + "ms</strong>.</p>" +
-            "<p>Press any key to complete the experiment. Thank you!</p>";
+        return  ""
+        // "<p>You responded correctly on <strong>" + accuracy_flanker + "%</strong> of the trials.</p> " +
+        //     "<p>Your average response time for congruent trials was <strong>" + congruent_rt + "ms</strong>.</p>" +
+        //     "<p>Your average response time for incongruent trials was <strong>" + incongruent_rt + "ms</strong>.</p>" +
+        //     "<p>Press any key to complete the experiment. Thank you!</p>"
     }
 };
+/* remove  debrief for ppts*/
 
 /*set up experiment structure*/
 var timeline = [];
