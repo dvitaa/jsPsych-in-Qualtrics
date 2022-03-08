@@ -51,22 +51,63 @@ Qualtrics.SurveyEngine.addOnload(function () {
                 /* Change 5: Summarizing and save the results to Qualtrics */
                 // summarize the results
                 var total_trials = jsPsych.data.get().filter({
-                    trial_type: 'image-keyboard-response'
+                    trial_type: 'image-keyboard-response',
+					practice: 0
                 }).count();
                 var accuracy_flanker = Math.round(jsPsych.data.get().filter({
                     correct: true,
                     practice: 0
                 }).count() / total_trials * 100);
-                var congruent_trials = jsPsych.data.get().filter({
-                    correct: true,
+				
+				var ctr = 1;
+
+                // get congruent trial values as an array
+                var congruent_arr = jsPsych.data.get().filter({
                     stim_type: 'congruent',
                     practice: 0
-                })
-                var incongruent_trials = jsPsych.data.get().filter({
-                    correct: true,
-                    stim_type: 'incongruent',
-                    practice: 0
-                })
+                }).values()
+				
+                // create string of form "trial_1:283,trial_2:100"
+                var congr_arr_len = congruent_arr.length;
+                var congruent_trials = "";
+				
+                for (var i = 1; i <= congr_arr_len; i++) {
+                    console.log(i);
+                    console.log(congruent_arr[i]);
+                    congruent_trials += 'trial_' +  String(ctr)   + ':' + String(congruent_arr[i-1].rt);
+					if (i != congr_arr_len) {
+						congruent_trials += ',';
+					}
+					ctr++;
+                }
+                console.log(congruent_trials);
+
+                var incongruent_trials = JSON.stringify(jsPsych.data.get().filter({
+                        stim_type: 'incongruent',
+                        practice: 0
+                    }).values())
+
+                // var incongruent_arr = jsPsych.data.get().filter({
+                //     stim_type: 'incongruent',
+                //     practice: 0
+                // }).values()
+				
+				// var incongr_arr_len = incongruent_arr.length;
+                // var incongruent_trials = "";
+				
+                // for (var i = 1; i <= incongr_arr_len; i++) {
+                //     console.log(i);
+                //     console.log(incongruent_arr[i]);
+                //     incongruent_trials += 'trial_' +  String(ctr) + ':' + String(incongruent_arr[i-1].rt);
+				// 	if (i != incongr_arr_len) {
+				// 		incongruent_trials += ',';
+				// 	}
+				// 	ctr++;
+                // }
+                // console.log(incongruent_trials);
+				
+				
+
                 // var congruent_rt = Math.round(jsPsych.data.get().filter({
                 //     correct: true,
                 //     stim_type: 'congruent',
