@@ -1,6 +1,6 @@
 // Use JSDELIVR to get the files from a GitHub repository
 // https://cdn.jsdelivr.net/gh/<github-username>/<repository-name>/
-var repo_site = "https://cdn.jsdelivr.net/gh/dvitaa/jsPsych-in-Qualtrics002/flanker/";
+var repo_site = "https://cdn.jsdelivr.net/gh/dvitaa/jsPsych-in-Qualtrics004/flanker/";
 
 /* experiment parameters */
 var reps_per_trial_type_practice = 1;
@@ -127,24 +127,24 @@ var test = {
 var debrief = {
     type: "html-keyboard-response",
     stimulus: function () {
-        var total_trials = jsPsych.data.get().filter({
-            trial_type: 'image-keyboard-response'
-        }).count();
-        var accuracy_flanker = Math.round(jsPsych.data.get().filter({
-            correct: true,
-            practice: 0
-        }).count() / total_trials * 100);
-        var congruent_rt = Math.round(jsPsych.data.get().filter({
-            correct: true,
-            stim_type: 'congruent',
-            practice: 0
-        }).select('rt').mean());
-        var incongruent_rt = Math.round(jsPsych.data.get().filter({
-            correct: true,
-            stim_type: 'incongruent',
-            practice:0
-        }).select('rt').mean());
-        return  ""
+        // var total_trials = jsPsych.data.get().filter({
+        //     trial_type: 'image-keyboard-response'
+        // }).count();
+        // var accuracy_flanker = Math.round(jsPsych.data.get().filter({
+        //     correct: true,
+        //     practice: 0
+        // }).count() / total_trials * 100);
+        // var congruent_rt = Math.round(jsPsych.data.get().filter({
+        //     correct: true,
+        //     stim_type: 'congruent',
+        //     practice: 0
+        // }).select('rt').mean());
+        // var incongruent_rt = Math.round(jsPsych.data.get().filter({
+        //     correct: true,
+        //     stim_type: 'incongruent',
+        //     practice:0
+        // }).select('rt').mean());
+        return  "YOU DONEZO"
         // "<p>You responded correctly on <strong>" + accuracy_flanker + "%</strong> of the trials.</p> " +
         //     "<p>Your average response time for congruent trials was <strong>" + congruent_rt + "ms</strong>.</p>" +
         //     "<p>Your average response time for incongruent trials was <strong>" + incongruent_rt + "ms</strong>.</p>" +

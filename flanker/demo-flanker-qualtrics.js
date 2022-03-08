@@ -11,7 +11,7 @@ Qualtrics.SurveyEngine.addOnload(function () {
 
     /* Change 2: Defining and load required resources */
     // https://cdn.jsdelivr.net/gh/<github-username>/<repository-name>/<experiment-folder>
-    var task_github = "https://cdn.jsdelivr.net/gh/dvitaa/jsPsych-in-Qualtrics002/flanker/";
+    var task_github = "https://cdn.jsdelivr.net/gh/dvitaa/jsPsych-in-Qualtrics004/flanker/";
 
     // requiredResources must include all the JS files that demo-simple-rt-task-transformed.html uses.
     var requiredResources = [
@@ -54,21 +54,38 @@ Qualtrics.SurveyEngine.addOnload(function () {
                     trial_type: 'image-keyboard-response'
                 }).count();
                 var accuracy_flanker = Math.round(jsPsych.data.get().filter({
-                    correct: true
+                    correct: true,
+                    practice: 0
                 }).count() / total_trials * 100);
-                var congruent_rt = Math.round(jsPsych.data.get().filter({
+                var congruent_trials = jsPsych.data.get().filter({
                     correct: true,
-                    stim_type: 'congruent'
-                }).select('rt').mean());
-                var incongruent_rt = Math.round(jsPsych.data.get().filter({
+                    stim_type: 'congruent',
+                    practice: 0
+                })
+                var incongruent_trials = jsPsych.data.get().filter({
                     correct: true,
-                    stim_type: 'incongruent'
-                }).select('rt').mean());
+                    stim_type: 'incongruent',
+                    practice: 0
+                })
+                // var congruent_rt = Math.round(jsPsych.data.get().filter({
+                //     correct: true,
+                //     stim_type: 'congruent',
+                //     practice: 0
+                // }).select('rt').mean());
+                // var incongruent_rt = Math.round(jsPsych.data.get().filter({
+                //     correct: true,
+                //     stim_type: 'incongruent',
+                //     practice: 0
+                // }).select('rt').mean());
+                
 
                 // save to qualtrics embedded data
+
                 Qualtrics.SurveyEngine.setEmbeddedData("accuracy_flanker", accuracy_flanker);
-                Qualtrics.SurveyEngine.setEmbeddedData("congruent_rt", congruent_rt);
-                Qualtrics.SurveyEngine.setEmbeddedData("incongruent_rt", incongruent_rt);
+                // Qualtrics.SurveyEngine.setEmbeddedData("congruent_rt", congruent_rt);
+                // Qualtrics.SurveyEngine.setEmbeddedData("incongruent_rt", incongruent_rt);
+                Qualtrics.SurveyEngine.setEmbeddedData("congruent_trials", congruent_trials);
+                Qualtrics.SurveyEngine.setEmbeddedData("incongruent_trials", incongruent_trials);
 
                 /* Change 6: Adding the clean up and continue functions.*/
                 // clear the stage
