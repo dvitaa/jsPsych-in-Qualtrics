@@ -1,6 +1,6 @@
 // Use JSDELIVR to get the files from a GitHub repository
 // https://cdn.jsdelivr.net/gh/<github-username>/<repository-name>/
-var repo_site = "https://cdn.jsdelivr.net/gh/dvitaa/jsPsych-in-Qualtrics004/flanker/";
+var repo_site = "https://cdn.jsdelivr.net/gh/dvitaa/jsPsych-in-Qualtrics50/flanker/";
 
 /* experiment parameters */
 var reps_per_trial_type_practice = 1;
@@ -67,9 +67,9 @@ var practice = {
         data: jsPsych.timelineVariable('data'),
         on_finish: function (data) {
             var correct = false;
-            if (data.direction == 'left' && data.key_press == 37 && data.rt > -1) {
+            if (data.direction == 'left' && data.key_press == 37 && data.flankerrt > -1) {
                 correct = true;
-            } else if (data.direction == 'right' && data.key_press == 39 && data.rt > -1) {
+            } else if (data.direction == 'right' && data.key_press == 39 && data.flankerrt > -1) {
                 correct = true;
             }
             data.correct = correct;
@@ -104,9 +104,9 @@ var test = {
         data: jsPsych.timelineVariable('data'),
         on_finish: function (data) {
             var correct = false;
-            if (data.direction == 'left' && data.key_press == 37 && data.rt > -1) {
+            if (data.direction == 'left' && data.key_press == 37 && data.flankerrt > -1) {
                 correct = true;
-            } else if (data.direction == 'right' && data.key_press == 39 && data.rt > -1) {
+            } else if (data.direction == 'right' && data.key_press == 39 && data.flankerrt > -1) {
                 correct = true;
             }
             data.correct = correct;
@@ -144,7 +144,7 @@ var debrief = {
         //     stim_type: 'incongruent',
         //     practice:0
         // }).select('rt').mean());
-        return  "YOU DONEZO"
+        return  "Press any key to continue."
         // "<p>You responded correctly on <strong>" + accuracy_flanker + "%</strong> of the trials.</p> " +
         //     "<p>Your average response time for congruent trials was <strong>" + congruent_rt + "ms</strong>.</p>" +
         //     "<p>Your average response time for incongruent trials was <strong>" + incongruent_rt + "ms</strong>.</p>" +
@@ -162,4 +162,6 @@ timeline.push(instructions);
 timeline.push(test);
 timeline.push(debrief);
 
+
+/*Hi*/
 

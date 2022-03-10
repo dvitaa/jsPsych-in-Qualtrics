@@ -1,67 +1,125 @@
 // Use JSDELIVR to get the files from a GitHub repository
 // https://cdn.jsdelivr.net/gh/<github-username>/<repository-name>/
-var repo_site = "https://cdn.jsdelivr.net/gh/dvitaa/jsPsych-in-Qualtrics15/countingstroop/";
+var repo_site = "https://cdn.jsdelivr.net/gh/dvitaa/jsPsych-in-Qualtrics50/countingstroop/";
 
 /* experiment parameters */
 var reps_per_trial_type_practice = 1;
-var reps_per_trial_type = 2;
+var reps_per_trial_type = 1;
 
 /*defining stimuli*/ //*add imgs*//
 var test_stimuli = [{
-    stimulus: repo_site + "img/1.png",
+    stimulus: repo_site + "img1/1con.png",
     data: {
-        stim_type: 'noun',
-        count: '4'
+        stim_type: 'congruent',
+        count: '1'
     }
 },
 {
-    stimulus: repo_site + "img/2.png",
+    stimulus: repo_site + "img/1incon2.png",
     data: {
-        stim_type: 'noun',
-        count: '3'
-    }
-},
-{
-   stimulus: repo_site + "img/3.png",
-    data: {
-        stim_type: 'noun',
+        stim_type: 'incongruent',
         count: '2'
     }
 },
 {
-    stimulus: repo_site + "img/4.png",
+    stimulus: repo_site + "img/1incon3.png",
     data: {
-        stim_type: 'noun',
-        count: '1'
-    } 
-},
-{
-stimulus: repo_site + "img/5.png",
-    data: {
-        stim_type: 'number',
-        count: '4'
-    }
-},
-{
-    stimulus: repo_site + "img/6.png",
-    data: {
-        stim_type: 'number',
+        stim_type: 'incongruent',
         count: '3'
     }
 },
 {
-   stimulus: repo_site + "img/7.png",
+    stimulus: repo_site + "img/1incon4.png",
     data: {
-        stim_type: 'number',
+        stim_type: 'incongruent',
+        count: '4'
+    }
+},
+{
+
+    stimulus: repo_site + "img1/2incon1.png",
+    data: {
+        stim_type: 'incongruent',
+        count: '1'
+        }
+    },
+{
+    stimulus: repo_site + "img/2con.png",
+    data: {
+        stim_type: 'congruent',
+        count: '2'
+        }
+    },
+    {
+    stimulus: repo_site + "img/2incon3.png",
+    data: {
+        stim_type: 'incongruent',
+        count: '3'
+        }
+    },
+    {
+    stimulus: repo_site + "img/2incon4.png",
+    data: {
+        stim_type: 'incongruent',
+        count: '4'
+        }
+},
+{
+    stimulus: repo_site + "img1/3incon1.png",
+    data: {
+        stim_type: 'incongruent',
+        count: '1'
+    }
+},
+{
+    stimulus: repo_site + "img/3incon2.png",
+    data: {
+        stim_type: 'incongruent',
         count: '2'
     }
 },
 {
-    stimulus: repo_site + "img/8.png",
+    stimulus: repo_site + "img/3con.png",
     data: {
-        stim_type: 'number',
+        stim_type: 'congruent',
+        count: '3'
+    }
+},
+{
+    stimulus: repo_site + "img/3incon4.png",
+    data: {
+        stim_type: 'incongruent',
+        count: '4'
+    }
+},
+{
+
+    stimulus: repo_site + "img1/4incon1.png",
+    data: {
+        stim_type: 'incongruent',
         count: '1'
-    } 
+        }
+    },
+{
+    stimulus: repo_site + "img/4incon2.png",
+    data: {
+        stim_type: 'congruent',
+        count: '2'
+        }
+    },
+    {
+        stimulus: repo_site + "img/4incon3.png",
+        data: {
+            stim_type: 'incongruent',
+            count: '3'
+        }
+    },
+    {
+        stimulus: repo_site + "img/4con.png",
+        data: {
+            stim_type: 'incongruent',
+            count: '4'
+        }
 }
 ];
 
@@ -74,13 +132,19 @@ var welcome = {
 /*set up practice instructions block*/
 var instructions_practice = {
     type: "html-keyboard-response",
-    stimulus: "<p>In this task, you will see words on a screen, like the example below.</p>" +
-        "<img src='" + repo_site + "img/4.png'></img>" +
-        "<p> Count the number of words on the screen. </p>" +
-        "<p>Press the number key corresponding to the number of words on the screen. </p>" +
-        "<p> For example, if there is 1 word on the screen you will press the '1' number key on your keyboard. </p>" +
-        "<p>You will first complete a practice round. </p>" +
-        "<p>Press any key to begin.</p>",
+    stimulus: "<p>For this task, you will see words appear on the screen. </p>" +
+        "<p> All words will be number words, such as 'two'. </p>" +
+        "<p> Words will be written either once, twice, three times, or four times.</p>" +
+        "<p> Press: </p>" +
+        "<p>  1 if the word appears only once </p>" +
+        "<p>  2 if it appears twice </p>" +
+        "<p>  3 if it appears three times </p>" +
+        "<p>  4 if it appears four times. </p>" +
+        "<p> Ignore the meaning of the word, just focus on how many times it is presented. </p>" +
+        "<p> Please try to respond as quickly as you can, while making as few mistakes as possible. </p>" +
+        "<p> You will complete a set of practice trials before you begin. </p>" +
+        "<p> Press any key to begin the practice trials. </p>",
+
     post_trial_gap: 1000
 };
 
@@ -95,16 +159,17 @@ var practice = {
         data_prac: jsPsych.timelineVariable('data_prac'),
          on_finish: function (data_prac) {
             var correct = false;
-            if (data_prac.count == '1' && data_prac.key_press == 49 && data_prac.rt > -1) {
+            if (data_prac.count == '1' && data_prac.key_press == 49 && data_prac.strooprt > -1) {
                 correct = true;
-            } else if (data_prac.count == '2' && data_prac.key_press == 50 && data_prac.rt > -1) {
+            } else if (data_prac.count == '2' && data_prac.key_press == 50 && data_prac.strooprt > -1) {
                 correct = true;
-            }else if (data_prac.count == '3' && data_prac.key_press == 51 && data_prac.rt > -1) {
+            }else if (data_prac.count == '3' && data_prac.key_press == 51 && data_prac.strooprt > -1) {
                 correct = true;
-            }else if (data_prac.count == '4' && data_prac.key_press == 52 && data_prac.rt > -1) {
+            }else if (data_prac.count == '4' && data_prac.key_press == 52 && data_prac.strooprt > -1) {
                 correct = true;
             }
             data_prac.correct = correct;
+            data.practice = 1;
         },
         post_trial_gap: function () {
             return Math.floor(Math.random() * 1000) + 500;
@@ -135,16 +200,17 @@ var test = {
         data: jsPsych.timelineVariable('data'),
         on_finish: function (data) {
             var correct = false;
-            if (data.count == '1' && data.key_press == 49 && data.rt > -1) {
+            if (data.count == '1' && data.key_press == 49 && data.strooprt > -1) {
                 correct = true;
-            } else if (data.count == '2' && data.key_press == 50 && data.rt > -1) {
+            } else if (data.count == '2' && data.key_press == 50 && data.strooprt > -1) {
                 correct = true;
-            }else if (data.count == '3' && data.key_press == 51 && data.rt > -1) {
+            }else if (data.count == '3' && data.key_press == 51 && data.strooprt > -1) {
                 correct = true;
-            }else if (data.count == '4' && data.key_press == 52 && data.rt > -1) {
+            }else if (data.count == '4' && data.key_press == 52 && data.strooprt > -1) {
                 correct = true;
             }
             data.correct = correct;
+            data.practice = 0;
         },
         post_trial_gap: function () {
             return Math.floor(Math.random() * 1500) + 500;
@@ -156,12 +222,13 @@ var test = {
         size: reps_per_trial_type
     }
 };
+
 /*maybe don't use count*/
 /*defining debriefing block*/
 var debrief = {
     type: "html-keyboard-response",
     stimulus: function () {
-        var total_trials = jsPsych.data.get().filter({
+        /* var total_trials = jsPsych.data.get().filter({
             trial_type: 'image-keyboard-response'
         }).count();
         var accuracy_stroop = Math.round(jsPsych.data.get().filter({
@@ -180,9 +247,10 @@ var debrief = {
             "<p>Your average response time for number trials was <strong>" + number_rt + "ms</strong>.</p>" +
             "<p>Press any key to complete the experiment. Thank you!</p>";
     }
-};
+};*/
 
 /*set up experiment structure*/
+
 var timeline = [];
 timeline.push(welcome);
 timeline.push(instructions_practice);
@@ -190,6 +258,3 @@ timeline.push(practice);
 timeline.push(instructions);
 timeline.push(test);
 timeline.push(debrief);
-
-
-/*is the data also coming from "practice"?*/

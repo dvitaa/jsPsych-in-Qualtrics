@@ -11,7 +11,7 @@ Qualtrics.SurveyEngine.addOnload(function () {
 
     /* Change 2: Defining and load required resources */
     // https://cdn.jsdelivr.net/gh/<github-username>/<repository-name>/<experiment-folder>
-    var task_github = "https://cdn.jsdelivr.net/gh/dvitaa/jsPsych-in-Qualtrics004/flanker/";
+    var task_github = "https://cdn.jsdelivr.net/gh/dvitaa/jsPsych-in-Qualtrics50/flanker/";
 
     // requiredResources must include all the JS files that demo-simple-rt-task-transformed.html uses.
     var requiredResources = [
@@ -67,7 +67,7 @@ Qualtrics.SurveyEngine.addOnload(function () {
                     practice: 0
                 }).values()
 				
-                // create string of form "trial_1:283,trial_2:100"
+                /*// create string of form "trial_1:283,trial_2:100"
                 var congr_arr_len = congruent_arr.length;
                 var congruent_trials = "";
 				
@@ -80,10 +80,10 @@ Qualtrics.SurveyEngine.addOnload(function () {
 					}
 					ctr++;
                 }
-                console.log(congruent_trials);
+                console.log(congruent_trials);*/
 
-                var incongruent_trials = JSON.stringify(jsPsych.data.get().filter({
-                        stim_type: 'incongruent',
+                var flankertrials = JSON.stringify(jsPsych.data.get().filter({
+                        //stim_type: 'incongruent',
                         practice: 0
                     }).values())
 
@@ -125,8 +125,8 @@ Qualtrics.SurveyEngine.addOnload(function () {
                 Qualtrics.SurveyEngine.setEmbeddedData("accuracy_flanker", accuracy_flanker);
                 // Qualtrics.SurveyEngine.setEmbeddedData("congruent_rt", congruent_rt);
                 // Qualtrics.SurveyEngine.setEmbeddedData("incongruent_rt", incongruent_rt);
-                Qualtrics.SurveyEngine.setEmbeddedData("congruent_trials", congruent_trials);
-                Qualtrics.SurveyEngine.setEmbeddedData("incongruent_trials", incongruent_trials);
+                Qualtrics.SurveyEngine.setEmbeddedData("flanker_trials", flankertrials);
+                // Qualtrics.SurveyEngine.setEmbeddedData("incongruent_trials", incongruent_trials);
 
                 /* Change 6: Adding the clean up and continue functions.*/
                 // clear the stage
