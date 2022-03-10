@@ -1,6 +1,6 @@
 // Use JSDELIVR to get the files from a GitHub repository
 // https://cdn.jsdelivr.net/gh/<github-username>/<repository-name>/
-var repo_site = "https://cdn.jsdelivr.net/gh/dvitaa/jsPsych-in-Qualtrics52/countingstroop/";
+var repo_site = "https://cdn.jsdelivr.net/gh/dvitaa/jsPsych-in-Qualtrics53/countingstroop/";
 
 /* experiment parameters */
 var reps_per_trial_type_practice = 1;
@@ -172,7 +172,7 @@ var practice = {
             data.practice = 1;
         },
         post_trial_gap: function () {
-            return Math.floor(Math.random() * 1000) + 500;
+            return Math.floor(Math.random() * 1500) + 500;
         }
     }],
     timeline_variables: test_stimuli,
@@ -245,9 +245,10 @@ var debrief = {
         return "<p>You responded correctly on <strong>" + accuracy_stroop + "%</strong> of the trials.</p> " +
             "<p>Your average response time for noun trials was <strong>" + noun_rt + "ms</strong>.</p>" +
             "<p>Your average response time for number trials was <strong>" + number_rt + "ms</strong>.</p>" +
-            "<p>Press any key to complete the experiment. Thank you!</p>";
+            "<p>Press any key to complete the experiment. Thank you!</p>";*/
+        return "Press any key to continue"
     }
-};*/
+};
 
 /*set up experiment structure*/
 
