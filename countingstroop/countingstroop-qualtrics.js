@@ -11,7 +11,7 @@ Qualtrics.SurveyEngine.addOnload(function () {
 
     /* Change 2: Defining and load required resources */
     // https://cdn.jsdelivr.net/gh/<github-username>/<repository-name>/<experiment-folder>
-    var task_github = "https://cdn.jsdelivr.net/gh/dvitaa/jsPsych-in-Qualtrics50/countingstroop";
+    var task_github = "https://cdn.jsdelivr.net/gh/dvitaa/jsPsych-in-Qualtrics51/countingstroop";
 
     // requiredResources must include all the JS files that demo-simple-rt-task-transformed.html uses.
     var requiredResources = [
@@ -59,13 +59,13 @@ Qualtrics.SurveyEngine.addOnload(function () {
                     practice: 0
                 }).count() / total_trials * 100);
 				
-				//var ctr = 1;
+				var ctr = 1;
 
                 // get congruent trial values as an array
-                /*var congruent_arr = jsPsych.data.get().filter({
+                var congruent_arr = jsPsych.data.get().filter({
                     stim_type: 'congruent',
                     practice: 0
-                }).values()*/
+                }).values()
 				
                 /*// create string of form "trial_1:283,trial_2:100"
                 var congr_arr_len = congruent_arr.length;

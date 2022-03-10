@@ -1,6 +1,6 @@
 // Use JSDELIVR to get the files from a GitHub repository
 // https://cdn.jsdelivr.net/gh/<github-username>/<repository-name>/
-var repo_site = "https://cdn.jsdelivr.net/gh/dvitaa/jsPsych-in-Qualtrics50/flanker/";
+var repo_site = "https://cdn.jsdelivr.net/gh/dvitaa/jsPsych-in-Qualtrics51/flanker/";
 
 /* experiment parameters */
 var reps_per_trial_type_practice = 1;
@@ -163,5 +163,5 @@ timeline.push(test);
 timeline.push(debrief);
 
 
-/*Hi*/
+
 

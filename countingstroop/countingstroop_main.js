@@ -1,10 +1,35 @@
 // Use JSDELIVR to get the files from a GitHub repository
 // https://cdn.jsdelivr.net/gh/<github-username>/<repository-name>/
-var repo_site = "https://cdn.jsdelivr.net/gh/dvitaa/jsPsych-in-Qualtrics50/countingstroop/";
+var repo_site = "https://cdn.jsdelivr.net/gh/dvitaa/jsPsych-in-Qualtrics51/countingstroop/";
 
 /* experiment parameters */
 var reps_per_trial_type_practice = 1;
 var reps_per_trial_type = 1;
+
+/*set up welcome block*/
+var welcome = {
+    type: "html-keyboard-response",
+    stimulus: "You will now complete a series of tasks. Press any key to begin."
+};
+
+/*set up practice instructions block*/
+var instructions_practice = {
+    type: "html-keyboard-response",
+    stimulus: "<p>For this task, you will see words appear on the screen. </p>" +
+        "<p> All words will be number words, such as 'two'. </p>" +
+        "<p> Words will be written either once, twice, three times, or four times.</p>" +
+        "<p> Press: </p>" +
+        "<p>  1 if the word appears only once </p>" +
+        "<p>  2 if it appears twice </p>" +
+        "<p>  3 if it appears three times </p>" +
+        "<p>  4 if it appears four times. </p>" +
+        "<p> Ignore the meaning of the word, just focus on how many times it is presented. </p>" +
+        "<p> Please try to respond as quickly as you can, while making as few mistakes as possible. </p>" +
+        "<p> You will complete a set of practice trials before you begin. </p>" +
+        "<p> Press any key to begin the practice trials. </p>",
+
+    post_trial_gap: 1000
+};
 
 /*defining stimuli*/ //*add imgs*//
 var test_stimuli = [{
@@ -12,7 +37,7 @@ var test_stimuli = [{
     data: {
         stim_type: 'congruent',
         count: '1'
-    }
+    } 
 },
 {
     stimulus: repo_site + "img/1incon2.png",
@@ -123,31 +148,6 @@ var test_stimuli = [{
 }
 ];
 
-/*set up welcome block*/
-var welcome = {
-    type: "html-keyboard-response",
-    stimulus: "You will now complete a series of tasks. Press any key to begin."
-};
-
-/*set up practice instructions block*/
-var instructions_practice = {
-    type: "html-keyboard-response",
-    stimulus: "<p>For this task, you will see words appear on the screen. </p>" +
-        "<p> All words will be number words, such as 'two'. </p>" +
-        "<p> Words will be written either once, twice, three times, or four times.</p>" +
-        "<p> Press: </p>" +
-        "<p>  1 if the word appears only once </p>" +
-        "<p>  2 if it appears twice </p>" +
-        "<p>  3 if it appears three times </p>" +
-        "<p>  4 if it appears four times. </p>" +
-        "<p> Ignore the meaning of the word, just focus on how many times it is presented. </p>" +
-        "<p> Please try to respond as quickly as you can, while making as few mistakes as possible. </p>" +
-        "<p> You will complete a set of practice trials before you begin. </p>" +
-        "<p> Press any key to begin the practice trials. </p>",
-
-    post_trial_gap: 1000
-};
-
 /*defining practice trial*/
 
 var practice = {
@@ -155,27 +155,27 @@ var practice = {
         type: 'image-keyboard-response',
         choices: [49, 50, 51, 52],
         trial_duration: 1500,
-        pracstimulus: jsPsych.timelineVariable('stimulus_prac'),
-        data_prac: jsPsych.timelineVariable('data_prac'),
-         on_finish: function (data_prac) {
+        pracstimulus: jsPsych.timelineVariable('stimulus'),
+        data_prac: jsPsych.timelineVariable('data'),
+         on_finish: function (data) {
             var correct = false;
-            if (data_prac.count == '1' && data_prac.key_press == 49 && data_prac.strooprt > -1) {
+            if (data.count == '1' && data.key_press == 49 && data.strooprt > -1) {
                 correct = true;
-            } else if (data_prac.count == '2' && data_prac.key_press == 50 && data_prac.strooprt > -1) {
+            } else if (data.count == '2' && data.key_press == 50 && data.strooprt > -1) {
                 correct = true;
-            }else if (data_prac.count == '3' && data_prac.key_press == 51 && data_prac.strooprt > -1) {
+            }else if (data.count == '3' && data.key_press == 51 && data.strooprt > -1) {
                 correct = true;
-            }else if (data_prac.count == '4' && data_prac.key_press == 52 && data_prac.strooprt > -1) {
+            }else if (data.count == '4' && data.key_press == 52 && data_.strooprt > -1) {
                 correct = true;
             }
-            data_prac.correct = correct;
+            data.correct = correct;
             data.practice = 1;
         },
         post_trial_gap: function () {
             return Math.floor(Math.random() * 1000) + 500;
         }
     }],
-    timeline_variables: practice_stimuli,
+    timeline_variables: test_stimuli,
     sample: {
         type: 'fixed-repetitions',
         size: reps_per_trial_type_practice
