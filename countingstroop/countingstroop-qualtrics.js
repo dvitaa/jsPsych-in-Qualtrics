@@ -59,15 +59,15 @@ Qualtrics.SurveyEngine.addOnload(function () {
                     practice: 0
                 }).count() / total_trials * 100);
 				
-				var ctr = 1;
+				//var ctr = 1;
 
                 // get congruent trial values as an array
-                var congruent_arr = jsPsych.data.get().filter({
+                /*var congruent_arr = jsPsych.data.get().filter({
                     stim_type: 'congruent',
                     practice: 0
                 }).values()
 				
-                /*// create string of form "trial_1:283,trial_2:100"
+                /* create string of form "trial_1:283,trial_2:100"
                 var congr_arr_len = congruent_arr.length;
                 var congruent_trials = "";
 				

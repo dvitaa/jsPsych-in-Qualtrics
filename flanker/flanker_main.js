@@ -153,7 +153,7 @@ var debrief = {
 };
 /* remove  debrief for ppts*/
 
-/*set up experiment structure*/
+/*set up  experiment structure*/
 var timeline = [];
 timeline.push(welcome);
 timeline.push(instructions_practice);

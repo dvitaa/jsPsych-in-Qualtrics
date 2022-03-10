@@ -33,7 +33,7 @@ var instructions_practice = {
 
 /*defining stimuli*/ //*add imgs*//
 var test_stimuli = [{
-    stimulus: repo_site + "img1/1con.png",
+    stimulus: repo_site + "img/1con.png",
     data: {
         stim_type: 'congruent',
         count: '1'
@@ -62,7 +62,7 @@ var test_stimuli = [{
 },
 {
 
-    stimulus: repo_site + "img1/2incon1.png",
+    stimulus: repo_site + "img/2incon1.png",
     data: {
         stim_type: 'incongruent',
         count: '1'
@@ -90,7 +90,7 @@ var test_stimuli = [{
         }
 },
 {
-    stimulus: repo_site + "img1/3incon1.png",
+    stimulus: repo_site + "img/3incon1.png",
     data: {
         stim_type: 'incongruent',
         count: '1'
@@ -119,7 +119,7 @@ var test_stimuli = [{
 },
 {
 
-    stimulus: repo_site + "img1/4incon1.png",
+    stimulus: repo_site + "img/4incon1.png",
     data: {
         stim_type: 'incongruent',
         count: '1'
@@ -163,9 +163,9 @@ var practice = {
                 correct = true;
             } else if (data.count == '2' && data.key_press == 50 && data.strooprt > -1) {
                 correct = true;
-            }else if (data.count == '3' && data.key_press == 51 && data.strooprt > -1) {
+            } else if (data.count == '3' && data.key_press == 51 && data.strooprt > -1) {
                 correct = true;
-            }else if (data.count == '4' && data.key_press == 52 && data_.strooprt > -1) {
+            } else if (data.count == '4' && data.key_press == 52 && data_.strooprt > -1) {
                 correct = true;
             }
             data.correct = correct;
