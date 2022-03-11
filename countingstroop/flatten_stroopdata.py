@@ -4,7 +4,7 @@ import sys
 
 if __name__ == '__main__':
     filename = sys.argv[1]
-    df_trials = pd.read_csv(filename.csv)
+    df_trials = pd.read_csv(filename)
     dfs = []
     for index, x in df_trials.iterrows():
         x = dict(x)
