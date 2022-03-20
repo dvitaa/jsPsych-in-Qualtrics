@@ -59,13 +59,13 @@ Qualtrics.SurveyEngine.addOnload(function () {
                     practice: 0
                 }).count() / total_trials * 100);
 				
-				var ctr = 1;
+				//var ctr = 1;
 
                 // get congruent trial values as an array
-                var congruent_arr = jsPsych.data.get().filter({
+                /*var congruent_arr = jsPsych.data.get().filter({
                     stim_type: 'congruent',
                     practice: 0
-                }).values()
+                }).values()*/
 				
                 /*// create string of form "trial_1:283,trial_2:100"
                 var congr_arr_len = congruent_arr.length;
@@ -104,7 +104,7 @@ Qualtrics.SurveyEngine.addOnload(function () {
 				// 	}
 				// 	ctr++;
                 // }
-                // console.log(incongruent_trials);
+                console.log(flanker_trials);
 				
 				
 
@@ -125,7 +125,7 @@ Qualtrics.SurveyEngine.addOnload(function () {
                 Qualtrics.SurveyEngine.setEmbeddedData("accuracy_flanker", accuracy_flanker);
                 // Qualtrics.SurveyEngine.setEmbeddedData("congruent_rt", congruent_rt);
                 // Qualtrics.SurveyEngine.setEmbeddedData("incongruent_rt", incongruent_rt);
-                Qualtrics.SurveyEngine.setEmbeddedData("flanker_trials", flankertrials);
+                Qualtrics.SurveyEngine.setEmbeddedData("flanker_trials", flanker_trials);
                 // Qualtrics.SurveyEngine.setEmbeddedData("incongruent_trials", incongruent_trials);
 
                 /* Change 6: Adding the clean up and continue functions.*/
