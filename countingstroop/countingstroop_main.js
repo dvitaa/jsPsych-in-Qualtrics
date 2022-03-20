@@ -1,6 +1,6 @@
 // Use JSDELIVR to get the files from a GitHub repository
 // https://cdn.jsdelivr.net/gh/<github-username>/<repository-name>/
-var repo_site = "https://cdn.jsdelivr.net/gh/dvitaa/jsPsych-in-Qualtrics60/countingstroop/";
+var repo_site = "https://cdn.jsdelivr.net/gh/dvitaa/jsPsych-in-Qualtrics61/countingstroop/";
 
 /* experiment parameters */
 var reps_per_trial_type_practice = 1;
@@ -9,7 +9,7 @@ var reps_per_trial_type = 1;
 /*set up welcome block*/
 var welcome = {
     type: "html-keyboard-response",
-    stimulus: "You will now complete a series of tasks. Press any key to begin."
+    stimulus: "Press any key to continue."
 };
 
 /*set up practice instructions block*/
@@ -159,13 +159,13 @@ var practice = {
         data: jsPsych.timelineVariable('data'),
          on_finish: function (data) {
             var correct = false;
-            if (data.count == '1' && data.key_press == 49 && data.strooprt > -1) {
+            if (data.count == '1' && data.key_press == 49 && data.rt > -1) {
                 correct = true;
-            } else if (data.count == '2' && data.key_press == 50 && data.strooprt > -1) {
+            } else if (data.count == '2' && data.key_press == 50 && data.rt > -1) {
                 correct = true;
-            } else if (data.count == '3' && data.key_press == 51 && data.strooprt > -1) {
+            } else if (data.count == '3' && data.key_press == 51 && data.rt > -1) {
                 correct = true;
-            } else if (data.count == '4' && data.key_press == 52 && data.strooprt > -1) {
+            } else if (data.count == '4' && data.key_press == 52 && data.rt > -1) {
                 correct = true;
             }
             data.correct = correct;
@@ -200,13 +200,13 @@ var test = {
         data: jsPsych.timelineVariable('data'),
         on_finish: function (data) {
             var correct = false;
-            if (data.count == '1' && data.key_press == 49 && data.strooprt > -1) {
+            if (data.count == '1' && data.key_press == 49 && data.rt > -1) {
                 correct = true;
-            } else if (data.count == '2' && data.key_press == 50 && data.strooprt > -1) {
+            } else if (data.count == '2' && data.key_press == 50 && data.rt > -1) {
                 correct = true;
-            }else if (data.count == '3' && data.key_press == 51 && data.strooprt > -1) {
+            }else if (data.count == '3' && data.key_press == 51 && data.rt > -1) {
                 correct = true;
-            }else if (data.count == '4' && data.key_press == 52 && data.strooprt > -1) {
+            }else if (data.count == '4' && data.key_press == 52 && data.rt > -1) {
                 correct = true;
             }
             data.correct = correct;
