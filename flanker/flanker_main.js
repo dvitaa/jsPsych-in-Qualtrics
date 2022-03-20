@@ -1,6 +1,6 @@
 // Use JSDELIVR to get the files from a GitHub repository
 // https://cdn.jsdelivr.net/gh/<github-username>/<repository-name>/
-var repo_site = "https://cdn.jsdelivr.net/gh/dvitaa/jsPsych-in-Qualtrics59/flanker/";
+var repo_site = "https://cdn.jsdelivr.net/gh/dvitaa/jsPsych-in-Qualtrics60/flanker/";
 
 /* experiment parameters */
 var reps_per_trial_type_practice = 1;
@@ -67,9 +67,9 @@ var practice = {
         data: jsPsych.timelineVariable('data'),
         on_finish: function (data) {
             var correct = false;
-            if (data.direction == 'left' && data.key_press == 37 && data.flankerrt > -1) {
+            if (data.direction == 'left' && data.key_press == 37 && data.rt > -1) {
                 correct = true;
-            } else if (data.direction == 'right' && data.key_press == 39 && data.flankerrt > -1) {
+            } else if (data.direction == 'right' && data.key_press == 39 && data.rt > -1) {
                 correct = true;
             }
             data.correct = correct;
@@ -104,9 +104,9 @@ var test = {
         data: jsPsych.timelineVariable('data'),
         on_finish: function (data) {
             var correct = false;
-            if (data.direction == 'left' && data.key_press == 37 && data.flankerrt > -1) {
+            if (data.direction == 'left' && data.key_press == 37 && data.rt > -1) {
                 correct = true;
-            } else if (data.direction == 'right' && data.key_press == 39 && data.flankerrt > -1) {
+            } else if (data.direction == 'right' && data.key_press == 39 && data.rt > -1) {
                 correct = true;
             }
             data.correct = correct;
