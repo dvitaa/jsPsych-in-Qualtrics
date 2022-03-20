@@ -11,7 +11,7 @@ Qualtrics.SurveyEngine.addOnload(function () {
 
     /* Change 2: Defining and load required resources */
     // https://cdn.jsdelivr.net/gh/<github-username>/<repository-name>/<experiment-folder>
-    var task_github = "https://cdn.jsdelivr.net/gh/dvitaa/jsPsych-in-Qualtrics61/countingstroop/";
+    var task_github = "https://cdn.jsdelivr.net/gh/dvitaa/jsPsych-in-Qualtrics62/countingstroop/";
 
     // requiredResources must include all the JS files that demo-simple-rt-task-transformed.html uses.
     var requiredResources = [
@@ -58,6 +58,8 @@ Qualtrics.SurveyEngine.addOnload(function () {
                     correct: true,
                     practice: 0
                 }).count() / total_trials * 100);
+                
+                console.log(strooptrials);
 				
 				  //var ctr = 1;
 

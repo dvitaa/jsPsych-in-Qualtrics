@@ -1,10 +1,10 @@
 // Use JSDELIVR to get the files from a GitHub repository
 // https://cdn.jsdelivr.net/gh/<github-username>/<repository-name>/
-var repo_site = "https://cdn.jsdelivr.net/gh/dvitaa/jsPsych-in-Qualtrics61/countingstroop/";
+var repo_site = "https://cdn.jsdelivr.net/gh/dvitaa/jsPsych-in-Qualtrics62/countingstroop/";
 
 /* experiment parameters */
 var reps_per_trial_type_practice = 1;
-var reps_per_trial_type = 1;
+var reps_per_trial_type = 20;
 
 /*set up welcome block*/
 var welcome = {
@@ -30,6 +30,67 @@ var instructions_practice = {
 
     post_trial_gap: 1000
 };
+
+// add practice stimuli
+
+var practice_stimuli = [{
+    stimulus: repo_site + "img/1con.png",
+    data: {
+        stim_type: 'congruent',
+        count: '1'
+    } 
+},
+{
+    stimulus: repo_site + "img/1incon2.png",
+    data: {
+        stim_type: 'incongruent',
+        count: '2'
+    }
+},
+{
+    stimulus: repo_site + "img/1incon3.png",
+    data: {
+        stim_type: 'incongruent',
+        count: '3'
+    }
+},
+{
+    stimulus: repo_site + "img/1incon4.png",
+    data: {
+        stim_type: 'incongruent',
+        count: '4'
+    }
+},
+{
+
+    stimulus: repo_site + "img/2incon1.png",
+    data: {
+        stim_type: 'incongruent',
+        count: '1'
+        }
+    },
+{
+    stimulus: repo_site + "img/2con.png",
+    data: {
+        stim_type: 'congruent',
+        count: '2'
+        }
+    },
+    {
+        stimulus: repo_site + "img/3con.png",
+        data: {
+            stim_type: 'congruent',
+            count: '3'
+        }
+    },
+    {
+        stimulus: repo_site + "img/4con.png",
+        data: {
+            stim_type: 'congruent',
+            count: '4'
+        }
+}
+];
 
 /*defining stimuli*/ //*add imgs*//
 var test_stimuli = [{
@@ -128,7 +189,7 @@ var test_stimuli = [{
 {
     stimulus: repo_site + "img/4incon2.png",
     data: {
-        stim_type: 'congruent',
+        stim_type: 'incongruent',
         count: '2'
         }
     },
@@ -142,7 +203,7 @@ var test_stimuli = [{
     {
         stimulus: repo_site + "img/4con.png",
         data: {
-            stim_type: 'incongruent',
+            stim_type: 'congruent',
             count: '4'
         }
 }
@@ -175,7 +236,7 @@ var practice = {
             return Math.floor(Math.random() * 1500) + 500;
         }
     }],
-    timeline_variables: test_stimuli,
+    timeline_variables: practice_stimuli,
     sample: {
         type: 'fixed-repetitions',
         size: reps_per_trial_type_practice
@@ -222,6 +283,7 @@ var test = {
         size: reps_per_trial_type
     }
 };
+
 
 /*maybe don't use count*/
 /*defining debriefing block*/
