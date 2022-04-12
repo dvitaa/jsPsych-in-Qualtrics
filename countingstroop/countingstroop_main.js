@@ -1,10 +1,10 @@
 // Use JSDELIVR to get the files from a GitHub repository
 // https://cdn.jsdelivr.net/gh/<github-username>/<repository-name>/
-var repo_site = "https://cdn.jsdelivr.net/gh/dvitaa/jsPsych-in-Qualtrics62/countingstroop/";
+var repo_site = "https://cdn.jsdelivr.net/gh/dvitaa/jsPsych-in-Qualtrics63/countingstroop/";
 
 /* experiment parameters */
 var reps_per_trial_type_practice = 1;
-var reps_per_trial_type = 20;
+var reps_per_trial_type = 10;
 
 /*set up welcome block*/
 var welcome = {

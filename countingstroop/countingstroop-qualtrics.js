@@ -11,7 +11,7 @@ Qualtrics.SurveyEngine.addOnload(function () {
 
     /* Change 2: Defining and load required resources */
     // https://cdn.jsdelivr.net/gh/<github-username>/<repository-name>/<experiment-folder>
-    var task_github = "https://cdn.jsdelivr.net/gh/dvitaa/jsPsych-in-Qualtrics62/countingstroop/";
+    var task_github = "https://cdn.jsdelivr.net/gh/dvitaa/jsPsych-in-Qualtrics63/countingstroop/";
 
     // requiredResources must include all the JS files that demo-simple-rt-task-transformed.html uses.
     var requiredResources = [
@@ -58,69 +58,16 @@ Qualtrics.SurveyEngine.addOnload(function () {
                     correct: true,
                     practice: 0
                 }).count() / total_trials * 100);
-                
-                console.log(strooptrials);
 				
-				  //var ctr = 1;
-
-                // get congruent trial values as an array
-                /*var congruent_arr = jsPsych.data.get().filter({
-                    stim_type: 'congruent',
-                    practice: 0
-                }).values()
-				
-                /* create string of form "trial_1:283,trial_2:100"
-                var congr_arr_len = congruent_arr.length;
-                var congruent_trials = "";
-				
-                for (var i = 1; i <= congr_arr_len; i++) {
-                    console.log(i);
-                    console.log(congruent_arr[i]);
-                    congruent_trials += 'trial_' +  String(ctr)   + ':' + String(congruent_arr[i-1].rt);
-					if (i != congr_arr_len) {
-						congruent_trials += ',';
-					}
-					ctr++;
-                }
-                console.log(congruent_trials);*/
-
-                var strooptrials = JSON.stringify(jsPsych.data.get().filter({
-                        //stim_type: 'incongruent',
+                var stroop_raw = jsPsych.data.get().filter({
                         practice: 0
-                    }).values())
-
-                // var incongruent_arr = jsPsych.data.get().filter({
-                //     stim_type: 'incongruent',
-                //     practice: 0
-                // }).values()
-				
-				// var incongr_arr_len = incongruent_arr.length;
-                // var incongruent_trials = "";
-				
-                // for (var i = 1; i <= incongr_arr_len; i++) {
-                //     console.log(i);
-                //     console.log(incongruent_arr[i]);
-                //     incongruent_trials += 'trial_' +  String(ctr) + ':' + String(incongruent_arr[i-1].rt);
-				// 	if (i != incongr_arr_len) {
-				// 		incongruent_trials += ',';
-				// 	}
-				// 	ctr++;
-                // }
-                // console.log(incongruent_trials);
-				
-				
-
-                // var congruent_rt = Math.round(jsPsych.data.get().filter({
-                //     correct: true,
-                //     stim_type: 'congruent',
-                //     practice: 0
-                // }).select('rt').mean());
-                // var incongruent_rt = Math.round(jsPsych.data.get().filter({
-                //     correct: true,
-                //     stim_type: 'incongruent',
-                //     practice: 0
-                // }).select('rt').mean());
+                    }).values()
                 
+                console.log("LOOK HERE!!!!!!! ")
+                console.log(Object.keys(stroop_raw).length)
+                var strooptrials = JSON.stringify(stroop_raw)
+
+                // console.log(strooptrials);
 
                 // save to qualtrics embedded data
 
