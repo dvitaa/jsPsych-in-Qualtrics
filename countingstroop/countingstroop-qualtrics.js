@@ -11,7 +11,7 @@ Qualtrics.SurveyEngine.addOnload(function () {
 
     /* Change 2: Defining and load required resources */
     // https://cdn.jsdelivr.net/gh/<github-username>/<repository-name>/<experiment-folder>
-    var task_github = "https://cdn.jsdelivr.net/gh/dvitaa/jsPsych-in-Qualtrics64/countingstroop/";
+    var task_github = "https://cdn.jsdelivr.net/gh/dvitaa/jsPsych-in-Qualtrics65/countingstroop/";
 
     // requiredResources must include all the JS files that demo-simple-rt-task-transformed.html uses.
     var requiredResources = [
@@ -64,7 +64,8 @@ Qualtrics.SurveyEngine.addOnload(function () {
                     }).values()
                     
                 var strooptrials;
-                for (let i = 0; i < Math.ceil(Object.keys(stroop_raw).length / 30); i++) { 
+                var num_columns = Math.ceil(Object.keys(stroop_raw).length / 30)
+                for (let i = 0; i < num_columns; i++) { 
                         strooptrials = JSON.stringify(stroop_raw.slice(i*30, (i+1)*30));
                         Qualtrics.SurveyEngine.setEmbeddedData("stroop_trials_"+i, strooptrials);
 
@@ -74,8 +75,8 @@ Qualtrics.SurveyEngine.addOnload(function () {
 
                 // save to qualtrics embedded data
 
-                Qualtrics.SurveyEngine.setEmbeddedData("accuracy_stroop", accuracy_stroop);
-                Qualtrics.SurveyEngine.setEmbeddedData("num_columns", i+1)
+                Qualtrics.SurveyEngine.setEmbeddedData("accuracy_stroop", stroop_accuracy);
+                Qualtrics.SurveyEngine.setEmbeddedData("num_columns", num_columns);
                 // Qualtrics.SurveyEngine.setEmbeddedData("congruent_rt", congruent_rt);
                 // Qualtrics.SurveyEngine.setEmbeddedData("incongruent_rt", incongruent_rt);
                 
