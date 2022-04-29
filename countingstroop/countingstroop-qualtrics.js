@@ -64,11 +64,13 @@ Qualtrics.SurveyEngine.addOnload(function () {
                     }).values()
                     
                 var strooptrials;
-                var num_columns = Math.ceil(Object.keys(stroop_raw).length / 30)
+                var num_columns = Math.ceil(Object.keys(stroop_raw).length / 30);
+                console.log(num_columns)
                 for (let i = 0; i < num_columns; i++) { 
-                        strooptrials = JSON.stringify(stroop_raw.slice(i*30, (i+1)*30));
-                        Qualtrics.SurveyEngine.setEmbeddedData("stroop_trials_"+i, strooptrials);
-
+                        // strooptrials = JSON.stringify(stroop_raw.slice(i*30, (i+1)*30));
+                        // let text = "stroop_trials_"+i;
+                        // Qualtrics.SurveyEngine.setEmbeddedData(text, strooptrials);
+                        console.log(i)
                     }
 
                 // console.log(strooptrials);
@@ -103,3 +105,4 @@ Qualtrics.SurveyEngine.addOnUnload(function () {
     /*Place your JavaScript here to run when the page is unloaded*/
 
 });
+

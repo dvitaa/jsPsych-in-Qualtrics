@@ -26,8 +26,8 @@ if __name__ == '__main__':
             stroop_dfs.append(this_df)           
                 
             
-    flanker_final = pd.concat(flanker_dfs).sort_values(by='ResponseId').reset_index(drop='True')
-    flanker_final.to_csv(f"{filename.split('.')[0]}_flanker_flattened.csv") 
+    # flanker_final = pd.concat(flanker_dfs).sort_values(by='ResponseId').reset_index(drop='True')
+    # flanker_final.to_csv(f"{filename.split('.')[0]}_flanker_flattened.csv") 
     stroop_final = pd.concat(stroop_dfs).sort_values(by='ResponseId').reset_index(drop='True')
     stroop_final.to_csv(f"{filename.split('.')[0]}_stroop_flattened.csv") 
 
