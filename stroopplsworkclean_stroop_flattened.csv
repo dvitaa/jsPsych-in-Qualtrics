@@ -1,0 +1,17 @@
+,rt,stimulus,key_press,stim_type,count,trial_type,trial_index,time_elapsed,internal_node_id,correct,practice,ResponseId
+0,622.2000000029802,https://cdn.jsdelivr.net/gh/dvitaa/jsPsych-in-Qualtrics67/countingstroop/img/4incon1.png,49.0,incongruent,1,image-keyboard-response,11,18895,0.0-4.0-0.0,True,0,R_3qmp1HYzJf7Qz5b
+1,530.9000000059605,https://cdn.jsdelivr.net/gh/dvitaa/jsPsych-in-Qualtrics67/countingstroop/img/2incon1.png,49.0,incongruent,1,image-keyboard-response,12,20624,0.0-4.0-0.1,True,0,R_3qmp1HYzJf7Qz5b
+2,601.2999999970198,https://cdn.jsdelivr.net/gh/dvitaa/jsPsych-in-Qualtrics67/countingstroop/img/1incon2.png,50.0,incongruent,2,image-keyboard-response,13,23208,0.0-4.0-0.2,True,0,R_3qmp1HYzJf7Qz5b
+3,504.70000000298023,https://cdn.jsdelivr.net/gh/dvitaa/jsPsych-in-Qualtrics67/countingstroop/img/2con.png,50.0,congruent,2,image-keyboard-response,14,25613,0.0-4.0-0.3,True,0,R_3qmp1HYzJf7Qz5b
+4,,https://cdn.jsdelivr.net/gh/dvitaa/jsPsych-in-Qualtrics67/countingstroop/img/3incon4.png,,incongruent,4,image-keyboard-response,15,29089,0.0-4.0-0.4,False,0,R_3qmp1HYzJf7Qz5b
+5,900.7000000029802,https://cdn.jsdelivr.net/gh/dvitaa/jsPsych-in-Qualtrics67/countingstroop/img/3incon1.png,49.0,incongruent,1,image-keyboard-response,16,30758,0.0-4.0-0.5,True,0,R_3qmp1HYzJf7Qz5b
+6,908.6000000089407,https://cdn.jsdelivr.net/gh/dvitaa/jsPsych-in-Qualtrics67/countingstroop/img/4incon3.png,51.0,incongruent,3,image-keyboard-response,17,32550,0.0-4.0-0.6,True,0,R_3qmp1HYzJf7Qz5b
+7,594.5,https://cdn.jsdelivr.net/gh/dvitaa/jsPsych-in-Qualtrics67/countingstroop/img/3con.png,51.0,congruent,3,image-keyboard-response,18,34590,0.0-4.0-0.7,True,0,R_3qmp1HYzJf7Qz5b
+8,632.7999999970198,https://cdn.jsdelivr.net/gh/dvitaa/jsPsych-in-Qualtrics67/countingstroop/img/1con.png,49.0,congruent,1,image-keyboard-response,19,35824,0.0-4.0-0.8,True,0,R_3qmp1HYzJf7Qz5b
+9,968.2999999970198,https://cdn.jsdelivr.net/gh/dvitaa/jsPsych-in-Qualtrics67/countingstroop/img/1incon4.png,52.0,incongruent,4,image-keyboard-response,20,37335,0.0-4.0-0.9,True,0,R_3qmp1HYzJf7Qz5b
+10,808.0,https://cdn.jsdelivr.net/gh/dvitaa/jsPsych-in-Qualtrics67/countingstroop/img/1incon3.png,51.0,incongruent,3,image-keyboard-response,21,39682,0.0-4.0-0.10,True,0,R_3qmp1HYzJf7Qz5b
+11,617.2000000029802,https://cdn.jsdelivr.net/gh/dvitaa/jsPsych-in-Qualtrics67/countingstroop/img/4incon2.png,50.0,incongruent,2,image-keyboard-response,22,40987,0.0-4.0-0.11,True,0,R_3qmp1HYzJf7Qz5b
+12,839.7999999970198,https://cdn.jsdelivr.net/gh/dvitaa/jsPsych-in-Qualtrics67/countingstroop/img/2incon4.png,52.0,incongruent,4,image-keyboard-response,23,42714,0.0-4.0-0.12,True,0,R_3qmp1HYzJf7Qz5b
+13,880.1000000089407,https://cdn.jsdelivr.net/gh/dvitaa/jsPsych-in-Qualtrics67/countingstroop/img/4con.png,52.0,congruent,4,image-keyboard-response,24,45267,0.0-4.0-0.13,True,0,R_3qmp1HYzJf7Qz5b
+14,935.4000000059605,https://cdn.jsdelivr.net/gh/dvitaa/jsPsych-in-Qualtrics67/countingstroop/img/3incon2.png,50.0,incongruent,2,image-keyboard-response,25,48131,0.0-4.0-0.14,True,0,R_3qmp1HYzJf7Qz5b
+15,698.5,https://cdn.jsdelivr.net/gh/dvitaa/jsPsych-in-Qualtrics67/countingstroop/img/2incon3.png,51.0,incongruent,3,image-keyboard-response,26,50439,0.0-4.0-0.15,True,0,R_3qmp1HYzJf7Qz5b
